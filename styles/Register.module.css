@@ -1,0 +1,131 @@
+.container {
+  padding: 0 2.3rem;
+  height: 75vh;
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #d0d0d0;
+  align-items: flex-end;
+  padding-bottom: 10px;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+}
+
+.nameContainer {
+  padding-bottom: 2rem;
+  display: flex;
+  gap: 50px;
+  justify-content: space-between;
+}
+
+.nameContainer input {
+  padding: 1.5vh;
+  padding-left: 0;
+  padding: 1.5vh 0;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #d8d8d8;
+  color: black;
+}
+
+.nameContainer input::placeholder {
+  color: #bebebe;
+}
+
+.nameContainer input:focus {
+  outline: none;
+}
+
+.phoneContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 25vh;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.phoneContainer input {
+  padding: 1vh;
+  padding-left: 0;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #d8d8d8;
+  color: black;
+}
+
+.phoneContainer input::placeholder {
+  color: #bebebe;
+}
+
+.phoneContainer input:focus {
+  outline: none;
+}
+
+.btnNext {
+  background-color: black;
+  width: 100%;
+  font-size: 16px;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.materialIcons {
+  align-self: flex-start;
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 30px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  cursor: pointer;
+  animation-name: icon-animation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
+}
+
+.btnLogin {
+  background-color: white;
+  color: #8f8f8f;
+  border: none;
+  font-weight: 600;
+  height: 20px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputContainer span {
+  font-size: 13px;
+}

@@ -1,0 +1,103 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+}
+
+.input {
+  padding: 0.6rem;
+  padding-left: 0;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #d8d8d8;
+  color: black;
+}
+
+.input::placeholder {
+  color: #bebebe;
+}
+
+.input:focus {
+  outline: none;
+}
+.inputContainer {
+  width: 100%;
+}
+
+.container {
+  height: 75vh;
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 2.3rem;
+  gap: 30px;
+}
+
+.btnLogin {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: none;
+  background-color: black;
+  border: no;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+}
+
+.cuadrado {
+  width: clamp(300px, 50%, 500px);
+  background-color: red;
+}
+
+.lastBtnContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.lastBtn {
+  background-color: transparent;
+  color: #a6a6a6;
+  border: none;
+  text-decoration: underline;
+}
+
+.materialIcons {
+  align-self: flex-start;
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 30px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  cursor: pointer;
+  animation-name: icon-animation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
+  align-self: center;
+}

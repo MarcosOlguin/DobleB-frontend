@@ -1,0 +1,64 @@
+.container {
+  width: 100%;
+  height: 10vh;
+  background-color: black;
+  border-right: 1px solid black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  position: sticky;
+  top: 0;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+.materialIcons {
+  align-self: flex-start;
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 40px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  cursor: pointer;
+  animation-name: icon-animation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
+  align-self: center;
+}
+
+.noLogin {
+  color: #ffff;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  padding: 0;
+}
+
+.login {
+  color: #4c78eb;
+  text-decoration: underline;
+}
