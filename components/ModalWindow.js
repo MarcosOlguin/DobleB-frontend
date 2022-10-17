@@ -24,7 +24,7 @@ function ModalWindow({ isOpen, setIsOpen }) {
     //   </div>
     // </div>
 
-    <AnimatePresence>
+    <>
       {isOpen && (
         <motion.div
           onClick={handleClose}
@@ -44,7 +44,7 @@ function ModalWindow({ isOpen, setIsOpen }) {
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </>
   );
 }
 
