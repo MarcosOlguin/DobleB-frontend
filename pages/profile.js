@@ -5,9 +5,11 @@ import Context from "../context/UserContext";
 import styles from "../styles/Profile.module.css";
 import { user, updatePass } from "../firebase.js";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import SuccessfulAlert from "../components/SuccessfulAlert";
 
 function Profile() {
   const [data, setData] = useState(null);
+  const [successful, setSuccessful] = useState(false);
   const { jwt, setJwt } = useContext(Context);
   const [edit, setEdit] = useState(false);
   const token = JSON.parse(jwt);
@@ -60,6 +62,9 @@ function Profile() {
         }
       );
       console.log(res);
+      if (res.status === 200) {
+        setSuccessful(true);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -98,6 +103,7 @@ function Profile() {
               />
               <button onClick={handleUpdate}>Guardar cambios</button>
               <button onClick={handlePassReset}>Reestablecer contraseña</button>
+              <SuccessfulAlert activated={successful} />
             </div>
           ) : (
             <div className={styles.container}>

@@ -13,7 +13,7 @@ function Home() {
   };
   return (
     <>
-      {jwt ? <NavBar /> : <NavBarNotLogged />}
+      <NavBarNotLogged />
       <div className={styles.container}>
         <div>Home</div>
         <div>Home</div>

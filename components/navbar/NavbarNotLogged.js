@@ -30,6 +30,10 @@ function NavBarNotLogged() {
   console.log(router.asPath);
 
   const path = router.asPath;
+
+  const handleClickProfile = () => {
+    router.push("/profile");
+  };
   return (
     <>
       <ModalWindow isOpen={isOpen} setIsOpen={setIsOpen} />
@@ -53,7 +57,7 @@ function NavBarNotLogged() {
             Ingresar
           </div>
         ) : (
-          <div>Perfil</div>
+          <div onClick={handleClickProfile}>Perfil</div>
         )}
       </div>
     </>

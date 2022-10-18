@@ -1,0 +1,45 @@
+.container {
+  width: 90%;
+  height: 50px;
+  border-radius: 10px;
+  color: #ffff;
+  background-color: #56cf29;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerDisabled {
+  display: none;
+}
+
+.materialIcons {
+  align-self: flex-start;
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 34px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  cursor: pointer;
+  animation-name: icon-animation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
+  align-self: center;
+}
