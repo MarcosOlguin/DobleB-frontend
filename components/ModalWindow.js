@@ -1,5 +1,9 @@
 import styles from "../styles/WindowModal.module.css";
+import Link from "next/link";
+import { useContext } from "react";
+import Context from "../context/UserContext";
 function ModalWindow({ isOpen, setIsOpen }) {
+  const { jwt } = useContext(Context);
   console.log(isOpen);
 
   const handleClose = () => {
@@ -16,7 +20,17 @@ function ModalWindow({ isOpen, setIsOpen }) {
         onClick={handleModalClick}
         className={isOpen ? styles.containerOpen : styles.containerClosed}
       >
-        modal
+        <div className={styles.sectionsContainer}>
+          <Link href="/turnos">
+            <a>Turnos</a>
+          </Link>
+          <Link href="/Sobre nosotros">
+            <a>Servicios</a>
+          </Link>
+          <Link href="/turnos">
+            <a>Nosotros</a>
+          </Link>
+        </div>
       </div>
     </div>
   );

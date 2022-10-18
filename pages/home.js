@@ -3,6 +3,7 @@ import { useContext, useEffect } from "react";
 import NavBar from "../components/navbar/Navbar.js";
 import NavBarNotLogged from "../components/navbar/NavbarNotLogged.js";
 import Context from "../context/UserContext.js";
+import styles from "../styles/Home.module.css";
 
 function Home() {
   const { jwt, setJwt } = useContext(Context);
@@ -13,7 +14,7 @@ function Home() {
   return (
     <>
       {jwt ? <NavBar /> : <NavBarNotLogged />}
-      <div style={{ height: 2000 }}>
+      <div className={styles.container}>
         <div>Home</div>
         <div>Home</div>
         <div>Home</div>

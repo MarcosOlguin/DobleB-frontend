@@ -1,12 +1,13 @@
 import styles from "../../styles/NavBarNotLogged.module.css";
 import { useRouter } from "next/router";
 import ModalWindow from "../ModalWindow";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import dobleBImg from "../../public/DobleB2.png";
-import { AnimatePresence, motion } from "framer-motion";
+import Context from "../../context/UserContext";
 
 function NavBarNotLogged() {
+  const { jwt } = useContext(Context);
   const [isOpen, setIsOpen] = useState(false);
   const [disabled, setDisabled] = useState(false);
 
@@ -44,12 +45,16 @@ function NavBarNotLogged() {
           <Image src={dobleBImg} alt="icon" width={100} height={100} />
         </div>
 
-        <div
-          onClick={handleClickLogin}
-          className={path === "/login" ? styles.login : styles.noLogin}
-        >
-          Ingresar
-        </div>
+        {!jwt ? (
+          <div
+            onClick={handleClickLogin}
+            className={path === "/login" ? styles.login : styles.noLogin}
+          >
+            Ingresar
+          </div>
+        ) : (
+          <div>Perfil</div>
+        )}
       </div>
     </>
   );
