@@ -1,5 +1,4 @@
 import styles from "../styles/WindowModal.module.css";
-import { AnimatePresence, motion } from "framer-motion";
 function ModalWindow({ isOpen, setIsOpen }) {
   console.log(isOpen);
 
@@ -12,39 +11,14 @@ function ModalWindow({ isOpen, setIsOpen }) {
   };
 
   return (
-    // <div
-    //   className={isOpen ? styles.modalOpen : styles.modalClose}
-    //   onClick={handleClose}
-    // >
-    //   <div
-    //     onClick={handleModalClick}
-    //     className={isOpen ? styles.containerOpen : styles.containerClosed}
-    //   >
-    //     modal
-    //   </div>
-    // </div>
-
-    <>
-      {isOpen && (
-        <motion.div
-          onClick={handleClose}
-          className={styles.opacity}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          <motion.div
-            onClick={handleModalClick}
-            className={styles.animate}
-            initial={{ y: "-100%" }}
-            animate={{ y: 10, opacity: 1 }}
-            exit={{ y: "-100%" }}
-          >
-            asd
-          </motion.div>
-        </motion.div>
-      )}
-    </>
+    <div className={isOpen ? styles.modalOpen : ""} onClick={handleClose}>
+      <div
+        onClick={handleModalClick}
+        className={isOpen ? styles.containerOpen : styles.containerClosed}
+      >
+        modal
+      </div>
+    </div>
   );
 }
 
