@@ -96,6 +96,13 @@ function Login() {
         <>
           {jwt ? <NavBar /> : <NavBarNotLogged />}
           <div className={styles.container}>
+            <div>
+              <h2>Bienvenido! ¿Ya es hora de un nuevo corte?</h2>
+              <p style={{ fontWeight: "bold" }}>
+                Ingresa y reservalo para cuando quieras
+              </p>
+            </div>
+
             <ErrorAlert
               text={"Email o contraseña incorrectos"}
               setFunction={setWrongCredentials}
@@ -132,7 +139,7 @@ function Login() {
               </div>
 
               <button type="submit" className={styles.btnLogin}>
-                Iniciar sesión
+                <p>Iniciar sesión</p>
                 <span className={styles.materialIcons}>content_cut</span>
               </button>
             </form>
