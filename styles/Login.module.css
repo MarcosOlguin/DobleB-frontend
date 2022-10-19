@@ -47,6 +47,7 @@
   border-radius: 8px;
   box-shadow: none;
   background-color: black;
+  color: white;
   border: none;
   display: flex;
   justify-content: center;
@@ -74,6 +75,7 @@
 }
 
 .materialIcons {
+  color: white;
   align-self: flex-start;
   font-family: "Material Icons";
   font-weight: normal;
