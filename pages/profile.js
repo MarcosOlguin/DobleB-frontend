@@ -11,6 +11,7 @@ import { useRouter } from "next/router";
 
 function Profile() {
   const [data, setData] = useState(null);
+  const [loginRedirect, setloginRedirect] = useState();
   //SUCCESSFUL ALERT
   const [successful, setSuccessful] = useState(false);
   const [resetPass, setResetPass] = useState(false);
@@ -40,6 +41,14 @@ function Profile() {
     };
     if (jwt) fetchData();
   }, [jwt]);
+
+  useEffect(() => {
+    if (!jwt) {
+      setTimeout(() => {
+        router.push("/login");
+      }, 3000);
+    }
+  }, [loginRedirect]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -93,6 +102,10 @@ function Profile() {
     } catch (error) {
       console.error(error.code);
     }
+  };
+
+  const redirect = () => {
+    setloginRedirect(true);
   };
   return (
     <>
@@ -199,7 +212,9 @@ function Profile() {
           )}
         </div>
       ) : (
-        <div>Not logged</div>
+        <div onLoad={redirect} className={styles.notLogged}>
+          <p>No tenes una sesion abierta!</p>
+        </div>
       )}
     </>
   );

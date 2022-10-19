@@ -126,6 +126,45 @@
   flex-direction: column;
 }
 
+.inputValidation {
+  color: red;
+}
+
 .inputContainer span {
-  font-size: 13px;
+  font-size: 16px;
+}
+
+.materialIconsSee {
+  align-self: flex-start;
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 40px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  cursor: pointer;
+  animation-name: icon-animation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
+  align-self: flex-end;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.seePassword {
+  display: flex;
 }

@@ -6,9 +6,15 @@ import { getAuth, signInWithCustomToken } from "firebase/auth";
 import { app } from "../firebase.js";
 import Context from "../context/UserContext";
 import { Router, useRouter } from "next/router";
+import ErrorAlert from "../components/ErrorAlert";
+import NavBarNotLogged from "../components/navbar/NavbarNotLogged";
 
 function Register() {
   const { jwt, setJwt } = useContext(Context);
+  const [validations, setValidations] = useState(false);
+  const [emailExists, setEmailExists] = useState(false);
+  const [phoneExists, setPhoneExists] = useState(false);
+  const [visibilityPassword, setVisibilityPassword] = useState(false);
   const router = useRouter();
   useEffect(() => {
     if (jwt !== null) router.push(`/home`);
@@ -32,6 +38,11 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (input.phone.length < 10) {
+      console.log("10 min");
+      return setValidations(true);
+    }
+
     let token = null;
     try {
       const res = await axios.post("http://localhost:3010/user/register", {
@@ -69,13 +80,13 @@ function Register() {
         error.response.data ===
         "The user with the provided phone number already exists."
       )
-        alert("El numbero de telefono ya esta en uso");
+        setPhoneExists(true);
 
       if (
         error.response.data ===
         "The email address is already in use by another account."
       )
-        alert("El email ya esta en uso");
+        setEmailExists(true);
     }
   };
 
@@ -83,9 +94,27 @@ function Register() {
     router.push("/login");
   };
 
+  const handleSee = () => {
+    if (!visibilityPassword) {
+      setVisibilityPassword(true);
+    } else {
+      setVisibilityPassword(false);
+    }
+  };
+
   return (
     <div>
-      <NavBar />
+      <NavBarNotLogged />
+      <ErrorAlert
+        text="El numero de teléfono ya se encuentra en uso"
+        activated={phoneExists}
+        setFunction={setPhoneExists}
+      />
+      <ErrorAlert
+        text="La dirección de email ya se encuentra en uso"
+        activated={emailExists}
+        setFunction={setEmailExists}
+      />
       <div className={styles.container}>
         <link
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -104,6 +133,8 @@ function Register() {
               <div className={styles.inputContainer}>
                 <span>Nombre</span>
                 <input
+                  minLength="2"
+                  required
                   className={styles.input}
                   onChange={handleChange}
                   type="text"
@@ -116,6 +147,8 @@ function Register() {
               <div className={styles.inputContainer}>
                 <span>Apellido</span>
                 <input
+                  minLength="3"
+                  required
                   onChange={handleChange}
                   type="text"
                   name="surname"
@@ -128,17 +161,27 @@ function Register() {
               <div className={styles.inputContainer}>
                 <span>Teléfono</span>
                 <input
+                  required
                   onChange={handleChange}
-                  type="text"
+                  type="number"
                   name="phone"
                   placeholder="Telefono"
                   value={input.phone}
+                  onFocus={() => {
+                    setValidations(false);
+                  }}
                 />
+                {validations && (
+                  <span className={styles.inputValidation}>
+                    Introduce un numero válido
+                  </span>
+                )}
               </div>
 
               <div className={styles.inputContainer}>
                 <span>E-mail</span>
                 <input
+                  required
                   onChange={handleChange}
                   type="email"
                   name="email"
@@ -148,13 +191,21 @@ function Register() {
               </div>
               <div className={styles.inputContainer}>
                 <span>Contraseña</span>
-                <input
-                  onChange={handleChange}
-                  type="password"
-                  name="password"
-                  placeholder="Contraseña"
-                  value={input.password}
-                />
+                <div className={styles.seePassword}>
+                  <input
+                    pattern=".{6,}"
+                    title="6 caracteres mínimo"
+                    required
+                    onChange={handleChange}
+                    type={visibilityPassword ? "text" : "password"}
+                    name="password"
+                    placeholder="Contraseña"
+                    value={input.password}
+                  />
+                  <span onClick={handleSee} className={styles.materialIconsSee}>
+                    {!visibilityPassword ? "visibility" : "visibility_off"}
+                  </span>
+                </div>
               </div>
             </div>
             <button className={styles.btnNext} type="submit">
