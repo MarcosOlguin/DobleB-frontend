@@ -1,6 +1,7 @@
 .container {
-  width: 90%;
-  height: 50px;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   border-radius: 10px;
   color: #ffff;
   background-color: #56cf29;
@@ -8,6 +9,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 80%;
+  left: 0%;
 }
 
 .containerDisabled {

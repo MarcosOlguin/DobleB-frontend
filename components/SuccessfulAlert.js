@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "../styles/SuccessfulAlert.module.css";
 import { AnimatePresence, motion } from "framer-motion";
 
-function SuccessfulAlert({ activated }) {
+function SuccessfulAlert({ activated, setFunction, text }) {
   const [enabled, setEnabled] = useState(false);
   console.log(activated);
 
@@ -11,6 +11,7 @@ function SuccessfulAlert({ activated }) {
       setEnabled(true);
       setTimeout(() => {
         setEnabled(false);
+        setFunction(false);
       }, 4000);
     }
   }, [activated]);
@@ -23,7 +24,7 @@ function SuccessfulAlert({ activated }) {
           exit={{ x: "-100%" }}
           className={styles.container}
         >
-          Cambios guardados con éxito!
+          {text}
           <span className={styles.materialIcons}>done</span>
         </motion.div>
       )}

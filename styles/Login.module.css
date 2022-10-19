@@ -29,7 +29,7 @@
 }
 
 .container {
-  height: 75vh;
+  height: 90vh;
   max-width: 1000px;
   margin: auto;
   display: flex;
@@ -100,4 +100,8 @@
   /* Support for IE. */
   font-feature-settings: "liga";
   align-self: center;
+}
+
+.resetContainer {
+  height: 90vh;
 }

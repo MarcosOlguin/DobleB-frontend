@@ -1,25 +1,66 @@
 .container {
-  height: 70vh;
-  width: 80vw;
-  margin: auto;
-  background-color: #ffff;
+  height: 80vh;
+  width: 84vw;
+  color: #ffff;
+  background-color: #1c2833;
+  display: flex;
+  flex-direction: column;
+}
+
+.h1Container {
+  width: 84vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.editDates {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.editDates div {
+  background-color: #abb2b9;
+  border-radius: 4px;
+  padding: 0.2rem;
+}
+.editDates p {
+  font-size: 20px;
+}
+.dates {
+  border-bottom: 1px solid grey;
+  padding-top: 1rem;
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+  background-color: #abb2b9;
+  border-radius: 4px;
+  padding: 0.3rem;
 }
 
 .background {
-  background-color: #f0f0f0;
+  background-color: #1c2833;
+  color: #ffff;
   height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 2rem;
 }
 
 .h1 {
-  margin-top: 0;
+  margin-top: 20px;
+  color: white;
 }
 
 .materialIcons {
-  align-self: flex-start;
   font-family: "Material Icons";
   font-weight: normal;
   font-style: normal;
-  font-size: 30px; /* Preferred icon size */
+  font-size: 20px; /* Preferred icon size */
   display: inline-block;
   line-height: 1;
   text-transform: none;
@@ -41,4 +82,34 @@
 
   /* Support for IE. */
   font-feature-settings: "liga";
+}
+
+.editContainer {
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  justify-content: flex-start;
+  gap: 5vh;
+  width: 84vw;
+}
+.editContainer input {
+  background-color: transparent;
+  border: none;
+  border: 1px solid #707b7c;
+  padding: 0.8rem;
+  border-radius: 20px;
+}
+
+.editBtnsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+}
+
+.editBtnsContainer button {
+  font-size: 18px;
+  background-color: #85929e;
+  border-radius: 5px;
+  padding: 0.5rem;
+  border: none;
 }

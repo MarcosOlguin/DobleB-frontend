@@ -79,6 +79,10 @@ function Register() {
     }
   };
 
+  const handleLogin = () => {
+    router.push("/login");
+  };
+
   return (
     <div>
       <NavBar />
@@ -89,7 +93,9 @@ function Register() {
         />
         <div className={styles.titleContainer}>
           <h1 style={{ margin: 0 }}>Registrarse</h1>
-          <button className={styles.btnLogin}>¿Ya tenés cuenta?</button>
+          <button onClick={handleLogin} className={styles.btnLogin}>
+            ¿Ya tenés cuenta?
+          </button>
         </div>
 
         <div>

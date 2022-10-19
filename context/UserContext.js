@@ -6,7 +6,7 @@ const UserContextProvider = ({ children }) => {
   const [jwt, setJwt] = useState(null);
 
   useEffect(() => {
-    setJwt(window.localStorage.getItem("UserLogged"));
+    setJwt(JSON.parse(window.localStorage.getItem("UserLogged")));
   }, []);
 
   let data = {

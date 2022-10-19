@@ -18,10 +18,20 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const user = getAuth(app);
 
+//Update password
 const updatePass = async (email) => {
   const auth = getAuth();
   console.log(auth.currentUser);
   sendPasswordResetEmail(auth, email);
 };
 
-export { user, updatePass };
+//Password reset
+const passwordReset = async (email) => {
+  const auth = getAuth();
+  try {
+    sendPasswordResetEmail(auth, email);
+  } catch (error) {
+    console.error(error);
+  }
+};
+export { user, updatePass, passwordReset };

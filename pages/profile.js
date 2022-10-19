@@ -4,22 +4,28 @@ import NavBar from "../components/navbar/Navbar";
 import Context from "../context/UserContext";
 import styles from "../styles/Profile.module.css";
 import { user, updatePass } from "../firebase.js";
-import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import { getAuth, sendPasswordResetEmail, signOut } from "firebase/auth";
 import SuccessfulAlert from "../components/SuccessfulAlert";
+import NavBarNotLogged from "../components/navbar/NavbarNotLogged";
+import { useRouter } from "next/router";
 
 function Profile() {
   const [data, setData] = useState(null);
+  //SUCCESSFUL ALERT
   const [successful, setSuccessful] = useState(false);
-  const { jwt, setJwt } = useContext(Context);
+  const [resetPass, setResetPass] = useState(false);
+  //
   const [edit, setEdit] = useState(false);
-  const token = JSON.parse(jwt);
+  const { jwt, setJwt } = useContext(Context);
+
+  const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await axios.get("http://localhost:3010/user/profile", {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${jwt}`,
           },
         });
         setData(res.data);
@@ -57,13 +63,14 @@ function Profile() {
         },
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${jwt}`,
           },
         }
       );
       console.log(res);
       if (res.status === 200) {
         setSuccessful(true);
+        setEdit(false);
       }
     } catch (error) {
       console.error(error);
@@ -72,49 +79,127 @@ function Profile() {
 
   const handlePassReset = async () => {
     updatePass(data.email);
+    setEdit(false);
+    setResetPass(true);
+  };
+
+  const handleLogout = async () => {
+    try {
+      await signOut(user);
+      setJwt(null);
+      window.localStorage.clear("UserLogged");
+      router.push("/login");
+      console.log(token);
+    } catch (error) {
+      console.error(error.code);
+    }
   };
   return (
     <>
-      <NavBar />
-      {data && (
+      <NavBarNotLogged />
+      {data ? (
         <div className={styles.background}>
-          <h1 className={styles.h1}>Perfil</h1>
-          <div
-            onClick={() => {
-              setEdit(true);
-            }}
-          >
-            <span>Modificar datos</span>
-            <span className={styles.materialIcons}>edit</span>
+          <div className={styles.h1Container}>
+            <h1 className={styles.h1}>Perfil</h1>{" "}
+            <div className={styles.logout} onClick={handleLogout}>
+              Salir <span className={styles.materialIcons}>logout</span>
+            </div>
           </div>
+
           {edit ? (
-            <div>
-              <input value={data.name} onChange={handleChange} name="name" />
-              <input
-                value={data.surname}
-                onChange={handleChange}
-                name="surname"
-              />
-              <input value={data.email} onChange={handleChange} name="email" />
-              <input
-                value={data.phoneNumber}
-                onChange={handleChange}
-                name="phoneNumber"
-              />
-              <button onClick={handleUpdate}>Guardar cambios</button>
-              <button onClick={handlePassReset}>Reestablecer contraseña</button>
-              <SuccessfulAlert activated={successful} />
+            <div className={styles.editContainer}>
+              <div>
+                <div>
+                  <p>Nombre</p>
+                  <input
+                    value={data.name}
+                    onChange={handleChange}
+                    name="name"
+                  />
+                </div>
+                <div>
+                  <p>Apellido</p>
+                  <input
+                    value={data.surname}
+                    onChange={handleChange}
+                    name="surname"
+                  />
+                </div>
+                <div>
+                  <p>Email</p>
+                  <input
+                    value={data.email}
+                    onChange={handleChange}
+                    name="email"
+                  />
+                </div>
+                <div>
+                  <p>Teléfono</p>
+                  <input
+                    value={data.phoneNumber}
+                    onChange={handleChange}
+                    name="phoneNumber"
+                  />
+                </div>
+              </div>
+              <div className={styles.editBtnsContainer}>
+                <button onClick={handleUpdate}>Guardar cambios</button>
+                <button onClick={handlePassReset}>
+                  Reestablecer contraseña
+                </button>
+              </div>
             </div>
           ) : (
-            <div className={styles.container}>
-              <p>datos</p>
-              <p>Nombre: {data.name}</p>
-              <p>Apellido: {data.surname}</p>
-              <p>Email: {data.email}</p>
-              <p>Telefono: {data.phoneNumber}</p>
-            </div>
+            <>
+              <div className={styles.container}>
+                <div className={styles.editDates}>
+                  <p>Tus datos</p>
+                  <div
+                    onClick={() => {
+                      setEdit(true);
+                    }}
+                  >
+                    <div style={{ display: "flex", alignContenct: "center" }}>
+                      Modificar datos
+                      <span className={styles.materialIcons}>edit</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className={styles.dates}>
+                  <p>Nombre</p>
+                  <p>{data.name}</p>
+                </div>
+                <div className={styles.dates}>
+                  <p>Apellido</p>
+                  <p>{data.surname}</p>
+                </div>
+                <div className={styles.dates}>
+                  <p>Email</p>
+                  <p>{data.email}</p>
+                </div>
+                <div className={styles.dates}>
+                  <p>Telefono</p>
+                  <p>+{data.phoneNumber}</p>
+                </div>
+                <SuccessfulAlert
+                  activated={resetPass}
+                  setFunction={setResetPass}
+                  text={
+                    "Se ha enviado un email a tu dirección, revisa la bandeja de spam!"
+                  }
+                />
+                <SuccessfulAlert
+                  activated={successful}
+                  setFunction={setSuccessful}
+                  text={"Cambios guardados con éxito!"}
+                />
+              </div>
+            </>
           )}
         </div>
+      ) : (
+        <div>Not logged</div>
       )}
     </>
   );
