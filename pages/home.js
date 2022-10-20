@@ -6,11 +6,11 @@ import NavBarNotLogged from "../components/navbar/NavbarNotLogged.js";
 import Context from "../context/UserContext.js";
 import styles from "../styles/Home.module.css";
 import backgroundImage from "../public/background.jpeg";
-import iconHaircut from "../public/icon-corte.png";
-import iconBeard from "../public/beard.png";
-import iconColoration from "../public/coloration.png";
-import iconTattoo from "../public/tattoo.png";
-import iconPiercing from "../public/piercing.png";
+import iconHaircut from "../public/icon-corte2.png";
+import iconBeard from "../public/beard2.png";
+import iconColoration from "../public/coloration2.png";
+import iconTattoo from "../public/tattoo2.png";
+import iconPiercing from "../public/piercing2.png";
 
 function Home() {
   const { jwt, setJwt } = useContext(Context);
