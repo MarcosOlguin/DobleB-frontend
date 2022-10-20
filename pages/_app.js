@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link
-        href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Lato&family=Raleway:wght@200;400&display=swap"
         rel="stylesheet"
       />
 

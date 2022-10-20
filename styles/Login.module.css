@@ -38,15 +38,16 @@
   flex-direction: column;
   padding: 0 2.3rem;
   gap: 30px;
-  background-color: #ffff;
+  background-color: #e7edea;
+  color: black;
 }
 
 .btnLogin {
   width: 100%;
-  padding: 0.6rem;
+  padding: 1rem;
   border-radius: 8px;
   box-shadow: none;
-  background-color: black;
+  background-color: #0a0922;
   color: white;
   border: none;
   display: flex;
@@ -54,6 +55,10 @@
   align-items: center;
   gap: 10px;
   font-size: 16px;
+}
+
+.btnLogin p {
+  margin: 0;
 }
 
 .cuadrado {
@@ -76,7 +81,7 @@
 
 .materialIcons {
   color: white;
-  align-self: flex-start;
+  align-self: center;
   font-family: "Material Icons";
   font-weight: normal;
   font-style: normal;

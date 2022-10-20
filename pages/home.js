@@ -1,9 +1,16 @@
+import Image from "next/image.js";
 import Link from "next/link.js";
 import { useContext, useEffect } from "react";
 import NavBar from "../components/navbar/Navbar.js";
 import NavBarNotLogged from "../components/navbar/NavbarNotLogged.js";
 import Context from "../context/UserContext.js";
 import styles from "../styles/Home.module.css";
+import backgroundImage from "../public/background.jpeg";
+import iconHaircut from "../public/icon-corte.png";
+import iconBeard from "../public/beard.png";
+import iconColoration from "../public/coloration.png";
+import iconTattoo from "../public/tattoo.png";
+import iconPiercing from "../public/piercing.png";
 
 function Home() {
   const { jwt, setJwt } = useContext(Context);
@@ -14,24 +21,62 @@ function Home() {
   return (
     <>
       <NavBarNotLogged />
-      <div className={styles.container}>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <div>Home</div>
-        <Link href="/login">
-          <a>Login</a>
-        </Link>
-        <button onClick={logout}>Logout</button>
+      <div className={styles.containerr}>
+        <div style={{ backgroundColor: "#fffaf2" }}>
+          <div className={styles.imgContainer}>
+            <p>Creamos tu mejor imagen</p>
+            <Image
+              className={styles.backgroundImage}
+              src={backgroundImage}
+              width={500}
+              height={350}
+            />
+          </div>
+
+          <button className={styles.backgroundBtn}>Reservar turno</button>
+        </div>
+
+        <div className={styles.container}>
+          {" "}
+          <span className={styles.h2}>Nuestros servicios</span>
+          <div className={styles.servicesContainer}>
+            <div className={styles.servicesLeft}>
+              <Image src={iconHaircut} height={60} width={60} />
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Tempora expedita odio
+              </p>
+            </div>
+            <div className={styles.servicesRight}>
+              <span>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Tempora expedita odio
+              </span>
+              <Image src={iconBeard} height={60} width={60} />
+            </div>
+            <div className={styles.servicesLeft}>
+              <Image src={iconColoration} height={60} width={60} />
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Tempora expedita odio
+              </p>
+            </div>
+            <div className={styles.servicesRight}>
+              <span>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Tempora expedita odio
+              </span>
+              <Image src={iconTattoo} width={60} height={60} />
+            </div>
+            <div className={styles.servicesLeft}>
+              <Image src={iconPiercing} width={60} height={60} />
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Tempora expedita odio
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
