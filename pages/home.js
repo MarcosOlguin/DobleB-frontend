@@ -25,12 +25,7 @@ function Home() {
         <div style={{ backgroundColor: "#e2e2e2" }}>
           <div className={styles.imgContainer}>
             <p>Creamos tu mejor imagen</p>
-            <Image
-              className={styles.backgroundImage}
-              src={backgroundImage}
-              width={500}
-              height={350}
-            />
+            <Image className={styles.backgroundImage} src={backgroundImage} />
           </div>
 
           <button className={styles.backgroundBtn}>Reservar turno</button>
