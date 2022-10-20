@@ -1,7 +1,7 @@
 .container {
   padding: 0 2rem;
   height: 200vh;
-  background-color: #fffaf2;
+  background-color: #e2e2e2;
   display: flex;
   flex-direction: column;
   gap: 4vh;
@@ -17,25 +17,25 @@
   top: 18vh;
   left: 20px;
   z-index: 100;
-  color: #e7edea;
+  color: white;
   font-size: 30px;
   font-weight: 300;
   width: 60vw;
 }
 
 .containerr {
-  background-color: #e7edea;
+  background-color: #e2e2e2;
 }
 
 .backgroundBtn {
   position: relative;
   left: 30%;
-  top: -20px;
+  top: -25px;
   z-index: 80;
   padding: 1rem 2rem;
   border-radius: 4px;
   border: none;
-  background-color: #ff982f;
+  background-color: #4c2c7d;
   font-size: 15px;
   box-shadow: 2px 3px 12px -5px black;
 }
@@ -47,7 +47,8 @@
 }
 
 .servicesLeft {
-  background-color: #ffc52c;
+  background-color: #414141;
+  color: white;
   width: 100%;
   height: 14vh;
   border-radius: 10px;
@@ -67,7 +68,7 @@
 }
 
 .servicesRight {
-  background-color: #ffc52c;
+  background-color: #414141;
   width: 100%;
   height: 14vh;
   border-radius: 10px;
@@ -75,6 +76,7 @@
   justify-content: flex-end;
   align-items: center;
   gap: 1vw;
+  color: white;
   padding-right: 4vw;
 }
 

@@ -22,7 +22,7 @@ function Home() {
     <>
       <NavBarNotLogged />
       <div className={styles.containerr}>
-        <div style={{ backgroundColor: "#fffaf2" }}>
+        <div style={{ backgroundColor: "#e2e2e2" }}>
           <div className={styles.imgContainer}>
             <p>Creamos tu mejor imagen</p>
             <Image
