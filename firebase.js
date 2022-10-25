@@ -35,3 +35,44 @@ const passwordReset = async (email) => {
   }
 };
 export { user, updatePass, passwordReset };
+
+// <div className={styles.subContainer}>
+//   <Image src={whatsappIcon} width={100} height={100} />
+//   <button className={styles.wspBtn}>Agendar Turno</button>
+//   <div className={styles.addressContainer}>
+//     <span className={styles.span}>
+//       <i className="fa-solid fa-location-dot fa-xl"></i>
+//       Nos encontramos en Savedra 2630, Granadero Baigorria, Santa Fe.
+//     </span>
+//   </div>
+// </div>;
+
+// .subContainer {
+//   height: 70vh;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   gap: 5vh;
+// }
+
+// .subContainer {
+//   text-align: center;
+// }
+
+// .wspBtn {
+//   padding: 2vh 20vw;
+//   font-size: 15px;
+//   border: none;
+//   border-radius: 10px;
+//   background-color: #54d340;
+// }
+
+// .span {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 300px;
+// }
+// .span i {
+//   margin-right: 0px;
+// }

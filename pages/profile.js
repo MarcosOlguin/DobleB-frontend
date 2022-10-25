@@ -121,7 +121,7 @@ function Profile() {
 
           {edit ? (
             <div className={styles.editContainer}>
-              <div>
+              <div className={styles.editSubContainer}>
                 <div>
                   <p>Nombre</p>
                   <input

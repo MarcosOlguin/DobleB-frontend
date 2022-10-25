@@ -1,17 +1,23 @@
 .container {
-  height: 80vh;
-  width: 84vw;
-  color: #ffff;
-  background-color: #1c2833;
+  height: 90vh;
+  width: 100vw;
+  color: black;
+  background-color: #e2e2e2;
   display: flex;
   flex-direction: column;
+  padding-left: 2rem;
+  padding-right: 1.9rem;
+  padding-top: 3vh;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
 }
 
 .h1Container {
   width: 84vw;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
+  margin-bottom: 2vh;
 }
 
 .editDates {
@@ -20,40 +26,45 @@
   justify-content: space-between;
 }
 .editDates div {
-  background-color: #abb2b9;
-  border-radius: 4px;
-  padding: 0.2rem;
+  color: #ffff;
+  background-color: #0a0922;
+  border-radius: 6px;
+  padding: 0.5rem;
 }
 .editDates p {
   font-size: 20px;
 }
 .dates {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #c4c4c4;
   padding-top: 1rem;
 }
 
 .logout {
   display: flex;
   align-items: center;
-  background-color: #abb2b9;
-  border-radius: 4px;
-  padding: 0.3rem;
+  background-color: #0a0922;
+  border-radius: 8px;
+  padding: 0.7rem;
 }
 
 .background {
-  background-color: #1c2833;
+  background-color: #414141;
   color: #ffff;
   height: 90vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding-left: 2rem;
+  justify-content: center;
+  align-items: center;
+
+  gap: 2vh;
 }
 
 .h1 {
   margin-top: 20px;
+  width: 25vw;
   color: white;
+  border-bottom: 1px solid grey;
+  margin-bottom: 0;
 }
 
 .materialIcons {
@@ -87,17 +98,24 @@
 .editContainer {
   display: flex;
   flex-direction: column;
-  height: 70vh;
+  height: 80vh;
   justify-content: flex-start;
   gap: 5vh;
-  width: 84vw;
+  width: 100vw;
+  color: black;
+  background-color: white;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 50px;
+  padding-left: 2rem;
 }
+
 .editContainer input {
   background-color: transparent;
   border: none;
   border: 1px solid #707b7c;
-  padding: 0.8rem;
+  padding: 0.6rem;
   border-radius: 20px;
+  color: black;
 }
 
 .editBtnsContainer {
@@ -108,7 +126,7 @@
 
 .editBtnsContainer button {
   font-size: 18px;
-  background-color: #85929e;
+  background-color: #0a0922;
   border-radius: 5px;
   padding: 0.5rem;
   border: none;

@@ -11,13 +11,12 @@ import iconBeard from "../public/beard2.png";
 import iconColoration from "../public/coloration2.png";
 import iconTattoo from "../public/tattoo2.png";
 import iconPiercing from "../public/piercing2.png";
+import { useRouter } from "next/router.js";
 
 function Home() {
   const { jwt, setJwt } = useContext(Context);
-  const logout = () => {
-    setJwt(null);
-    window.localStorage.clear("UserLogged");
-  };
+  const router = useRouter();
+
   return (
     <>
       <NavBarNotLogged />
@@ -28,7 +27,14 @@ function Home() {
             <Image className={styles.backgroundImage} src={backgroundImage} />
           </div>
 
-          <button className={styles.backgroundBtn}>Reservar turno</button>
+          <button
+            onClick={() => {
+              router.push("/turnos");
+            }}
+            className={styles.backgroundBtn}
+          >
+            Reservar turno
+          </button>
         </div>
 
         <div className={styles.container}>
