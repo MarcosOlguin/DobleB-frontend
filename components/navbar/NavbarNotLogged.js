@@ -21,7 +21,7 @@ function NavBarNotLogged() {
 
   const router = useRouter();
   const handleClickHome = () => {
-    router.push("/home");
+    router.push("/");
   };
   const handleClickLogin = () => {
     setDisabled(true);
