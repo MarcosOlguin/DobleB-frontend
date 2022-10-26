@@ -35,10 +35,7 @@ function Home() {
           rel="stylesheet"
         />
       </Head>
-      <Script
-        src="https://kit.fontawesome.com/61e3109911.js"
-        crossorigin="anonymous"
-      ></Script>
+
       <NavBarNotLogged />
       <div className={styles.containerr}>
         <div style={{ backgroundColor: "#e2e2e2" }}>
