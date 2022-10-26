@@ -1,5 +1,5 @@
 .container {
-  height: 545vh;
+  height: 100%;
   background-color: #e2e2e2;
   display: flex;
   flex-direction: column;
