@@ -15,10 +15,6 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Lato&family=Raleway:wght@200;400&display=swap"
           rel="stylesheet"
         />
-        <script
-          src="https://kit.fontawesome.com/61e3109911.js"
-          crossorigin="anonymous"
-        ></script>
       </Head>
       <body>
         <Main />
