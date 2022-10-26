@@ -14,6 +14,12 @@ import iconPiercing from "../public/piercing2.png";
 import { useRouter } from "next/router.js";
 import Head from "next/head.js";
 import Script from "next/script.js";
+import img5 from "../public/5.jpeg";
+import img1 from "../public/1.jpeg";
+import img2 from "../public/2.jpeg";
+import img3 from "../public/3.jpeg";
+import img4 from "../public/4.jpeg";
+import dobleBImg from "../public/DobleB2.png";
 
 function Home() {
   const { jwt, setJwt } = useContext(Context);
@@ -82,6 +88,27 @@ function Home() {
                 Tempora expedita odio
               </p>
             </div>
+          </div>
+          <span className={styles.h2}>Galería</span>
+          <Image src={img5} />
+          <Image src={img1} />
+          <Image src={img2} />
+          <Image src={img3} />
+          <Image src={img4} />
+          <div className={styles.aboutContainer}>
+            <span className={styles.spanAbout}>Sobre</span>
+            <div className={styles.aboutDobleb}>
+              <Image src={dobleBImg} width={180} height={180}></Image>
+            </div>
+            <p>
+              Somos un estudio dedicado a varios sectores del estilo, tenemos
+              barberia en dónde realizamos cortes, afeitado, coloración y
+              diseños con navaja.
+            </p>
+            <p>
+              También contamos con un estudio de tattoos y de perforaciones en
+              el que hacemos todo tipos de diseños a medida.
+            </p>
           </div>
         </div>
       </div>

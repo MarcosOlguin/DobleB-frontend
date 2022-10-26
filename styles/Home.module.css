@@ -1,10 +1,9 @@
 .container {
-  padding: 0 2rem;
-  height: 200vh;
+  height: 800vh;
   background-color: #e2e2e2;
   display: flex;
   flex-direction: column;
-  gap: 4vh;
+  gap: 8vh;
 }
 
 .backgroundImage {
@@ -45,6 +44,7 @@
   border-bottom: 1px solid grey;
   width: 72vw;
   font-size: 30px;
+  margin: 0 2rem;
 }
 
 .servicesLeft {
@@ -90,4 +90,35 @@
   flex-direction: column;
   height: 85vh;
   justify-content: space-around;
+  padding: 0 2rem;
+}
+
+.aboutDobleb {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  gap: 10vw;
+  align-items: center;
+  width: 100%;
+}
+
+.spanAbout {
+  padding-top: 3rem;
+  font-size: 30px;
+  color: white;
+  margin-bottom: -30px;
+}
+
+.aboutContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #414141;
+  color: white;
+}
+
+.aboutContainer p {
+  padding: 0 2rem;
+  font-size: 17px;
 }
