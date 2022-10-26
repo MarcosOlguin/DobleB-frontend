@@ -19,11 +19,11 @@ function MyApp({ Component, pageProps }) {
           href="https://fonts.googleapis.com/css2?family=Lato&family=Raleway:wght@200;400&display=swap"
           rel="stylesheet"
         />
-        <Script
-          src="https://kit.fontawesome.com/61e3109911.js"
-          crossorigin="anonymous"
-        ></Script>
       </Head>
+      <Script
+        src="https://kit.fontawesome.com/61e3109911.js"
+        crossorigin="anonymous"
+      ></Script>
       <Component {...pageProps} />
     </UserContextProvider>
   );
