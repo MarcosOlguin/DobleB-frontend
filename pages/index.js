@@ -20,6 +20,7 @@ import img2 from "../public/2.jpeg";
 import img3 from "../public/3.jpeg";
 import img4 from "../public/4.jpeg";
 import dobleBImg from "../public/DobleB2.png";
+import Footer from "../components/Footer.js";
 
 function Home() {
   const { jwt, setJwt } = useContext(Context);
@@ -55,37 +56,25 @@ function Home() {
           <div className={styles.servicesContainer}>
             <div className={styles.servicesLeft}>
               <Image src={iconHaircut} height={60} width={60} />
-              <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Tempora expedita odio
-              </p>
+              <p>Hacemos todo tipo de corte utilizando las mejores técnicas.</p>
             </div>
             <div className={styles.servicesRight}>
-              <span>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Tempora expedita odio
-              </span>
+              <span>Realizamos afeitado y perfilado de barbas</span>
               <Image src={iconBeard} height={60} width={60} />
             </div>
             <div className={styles.servicesLeft}>
               <Image src={iconColoration} height={60} width={60} />
-              <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Tempora expedita odio
-              </p>
+              <p>Hacemos mechas y coloración global de distintos colores.</p>
             </div>
             <div className={styles.servicesRight}>
-              <span>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Tempora expedita odio
-              </span>
+              <span>Estudio de tattoos con diseños personalizados.</span>
               <Image src={iconTattoo} width={60} height={60} />
             </div>
             <div className={styles.servicesLeft}>
               <Image src={iconPiercing} width={60} height={60} />
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Tempora expedita odio
+                Perforaciones con la mayor precisión y todas las medidas
+                sanitarias
               </p>
             </div>
           </div>
@@ -109,9 +98,13 @@ function Home() {
               También contamos con un estudio de tattoos y de perforaciones en
               el que hacemos todo tipos de diseños a medida.
             </p>
+            <p>
+              Nos encontramos en Saavedra 2630 en Granadero Baigorria, Santa Fe
+            </p>
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

@@ -1,0 +1,39 @@
+.container {
+  background-color: #0a0922;
+  color: white;
+  height: 45vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: auto;
+  padding: auto;
+  padding: 0 2rem;
+  gap: 2vh;
+  background: linear-gradient(#0a0922, black);
+}
+
+.p {
+  text-align: center;
+  padding-bottom: 0vh;
+}
+
+.socialContainer {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 1vh;
+  font-size: 18px;
+}
+
+.socialContainer p {
+  margin: 0;
+  margin-bottom: 0px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.marcos {
+  margin-bottom: 4vh;
+}

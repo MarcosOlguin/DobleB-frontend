@@ -18,7 +18,12 @@ function Turnos() {
     <div>
       <NavBarNotLogged />
       <div className={styles.container}>
-        <h2>Escribinos y reseva tu turno!</h2>
+        <div className={styles.titleContainer}>
+          <h2>Escribinos y reseva tu turno!</h2>
+          <span className={styles.span}>
+            Contacta al profesional que necesites, tu consulta no molesta.
+          </span>
+        </div>
 
         <div>
           <p className={styles.p}>
