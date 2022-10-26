@@ -23,7 +23,12 @@ function Turnos() {
           <p>Para Barberia</p>
           <div className={styles.barbarContainer}>
             <div className={styles.imgContainer}>
-              <Image src={backgroundImgSanti} width={130} height={120} />
+              <Image
+                alt="img"
+                src={backgroundImgSanti}
+                width={130}
+                height={120}
+              />
             </div>
             <p>Profesional: Santiago</p>
             <Link href={"https://walink.co/ee1c6d"}>
@@ -36,7 +41,12 @@ function Turnos() {
           <p>Para Tattoos</p>
           <div className={styles.tattooContainer}>
             <div className={styles.imgContainer}>
-              <Image src={backgroundImgNico} width={130} height={120} />
+              <Image
+                alt="img"
+                src={backgroundImgNico}
+                width={130}
+                height={120}
+              />
             </div>
             <p>Profesional: Nico</p>
 

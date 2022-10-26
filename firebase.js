@@ -34,7 +34,7 @@ const passwordReset = async (email) => {
     console.error(error);
   }
 };
-export { user, updatePass, passwordReset };
+export { user, updatePass, passwordReset, app };
 
 // <div className={styles.subContainer}>
 //   <Image src={whatsappIcon} width={100} height={100} />
