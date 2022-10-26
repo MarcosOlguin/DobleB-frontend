@@ -12,6 +12,8 @@ import iconColoration from "../public/coloration2.png";
 import iconTattoo from "../public/tattoo2.png";
 import iconPiercing from "../public/piercing2.png";
 import { useRouter } from "next/router.js";
+import Head from "next/head.js";
+import Script from "next/script.js";
 
 function Home() {
   const { jwt, setJwt } = useContext(Context);
@@ -19,6 +21,24 @@ function Home() {
 
   return (
     <>
+      <Head>
+        <title>Doble-B</title>
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"
+        />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lato&family=Raleway:wght@200;400&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
+      <Script
+        src="https://kit.fontawesome.com/61e3109911.js"
+        crossorigin="anonymous"
+      ></Script>
       <NavBarNotLogged />
       <div className={styles.containerr}>
         <div style={{ backgroundColor: "#e2e2e2" }}>
