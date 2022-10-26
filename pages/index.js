@@ -21,21 +21,6 @@ function Home() {
 
   return (
     <>
-      <Head>
-        <title>Doble-B</title>
-        <link
-          href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet"
-        />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lato&family=Raleway:wght@200;400&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-
       <NavBarNotLogged />
       <div className={styles.containerr}>
         <div style={{ backgroundColor: "#e2e2e2" }}>
