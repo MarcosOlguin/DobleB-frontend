@@ -35,7 +35,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  box-shadow: 2px 4px 10px 2-px grey;
   color: white;
 }
 
