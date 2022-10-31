@@ -25,9 +25,17 @@ function Turnos() {
           </span>
         </div>
 
+        <button
+          onClick={() => {
+            route.push("/turnos-online");
+          }}
+        >
+          Reservar online
+        </button>
+
         <div>
           <p className={styles.p}>
-            Para Barberia <i class="fa-solid fa-scissors"></i>
+            Para Barberia <i className="fa-solid fa-scissors"></i>
           </p>
           <div className={styles.barbarContainer}>
             <div className={styles.imgContainer}>

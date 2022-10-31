@@ -87,7 +87,7 @@ function Home() {
           <div className={styles.aboutContainer}>
             <span className={styles.spanAbout}>Sobre</span>
             <div className={styles.aboutDobleb}>
-              <Image src={dobleBImg} width={180} height={180}></Image>
+              <Image src={dobleBImg} width={170} height={168}></Image>
             </div>
             <p>
               Somos un estudio dedicado a varios sectores del estilo, tenemos

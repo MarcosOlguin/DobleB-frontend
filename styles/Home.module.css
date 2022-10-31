@@ -115,7 +115,9 @@
   justify-content: center;
   align-items: center;
   background-color: #414141;
+  background: linear-gradient(#4c2c7d, black);
   color: white;
+  margin-bottom: 25vh;
 }
 
 .aboutContainer p {

@@ -15,6 +15,7 @@ function Profile() {
   //SUCCESSFUL ALERT
   const [successful, setSuccessful] = useState(false);
   const [resetPass, setResetPass] = useState(false);
+  const [cancelAppoint, setCancelAppoint] = useState(false);
   //
   const [edit, setEdit] = useState(false);
   const { jwt, setJwt } = useContext(Context);
@@ -40,15 +41,7 @@ function Profile() {
       }
     };
     if (jwt) fetchData();
-  }, [jwt]);
-
-  useEffect(() => {
-    if (!jwt) {
-      setTimeout(() => {
-        router.push("/login");
-      }, 3000);
-    }
-  }, [loginRedirect]);
+  }, [jwt, cancelAppoint]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -107,6 +100,39 @@ function Profile() {
   const redirect = () => {
     setloginRedirect(true);
   };
+
+  console.log(data);
+
+  useEffect(() => {
+    if (data) {
+      console.log(
+        new Date(
+          "Tue Oct 25 2022 14:00:00 GMT-0300 (hora estándar de Argentina)"
+        ) <
+          new Date(
+            "Tue Oct 25 2022 16:00:00 GMT-0300 (hora estándar de Argentina)"
+          )
+      );
+    }
+  }, [data]);
+
+  const handleCancel = () => {
+    try {
+      const res = axios.patch(
+        "http://localhost:3010/turno/cancelar-turno",
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${jwt}`,
+          },
+        }
+      );
+      setCancelAppoint(true);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <>
       <NavBarNotLogged />
@@ -165,6 +191,24 @@ function Profile() {
           ) : (
             <>
               <div className={styles.container}>
+                <div>
+                  <h2>TusTurnos</h2>
+                  {data.appointment ? (
+                    <div>
+                      <p>{new Date(data.appointment).toLocaleString()}</p>
+                      <button onClick={handleCancel}>Cancelar turno</button>
+                    </div>
+                  ) : (
+                    <>
+                      <p>Sin turnos</p>
+                    </>
+                  )}
+                  <SuccessfulAlert
+                    activated={cancelAppoint}
+                    setFunction={setCancelAppoint}
+                    text={"Turno cancelado con exito"}
+                  />
+                </div>
                 <div className={styles.editDates}>
                   <p>Tus datos</p>
                   <div

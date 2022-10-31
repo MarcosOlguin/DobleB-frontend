@@ -4,7 +4,6 @@ import { useContext } from "react";
 import Context from "../context/UserContext";
 function ModalWindow({ isOpen, setIsOpen }) {
   const { jwt } = useContext(Context);
-  console.log(isOpen);
 
   const handleClose = () => {
     setIsOpen(false);

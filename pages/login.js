@@ -30,7 +30,7 @@ function Login() {
   //
 
   useEffect(() => {
-    if (jwt !== null) router.push(`/home`);
+    if (jwt !== null) router.push(`/`);
   }, [jwt]);
 
   const handleChange = (e) => {

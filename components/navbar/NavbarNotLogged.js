@@ -27,7 +27,6 @@ function NavBarNotLogged() {
     setDisabled(true);
     router.push("/login");
   };
-  console.log(router.asPath);
 
   const path = router.asPath;
 

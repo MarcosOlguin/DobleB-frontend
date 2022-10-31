@@ -1,5 +1,5 @@
 .container {
-  height: 90vh;
+  height: 100%;
   width: 100vw;
   color: black;
   background-color: #e2e2e2;
@@ -50,7 +50,7 @@
 .background {
   background-color: #414141;
   color: #ffff;
-  height: 90vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
