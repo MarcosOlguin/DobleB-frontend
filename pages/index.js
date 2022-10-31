@@ -79,28 +79,33 @@ function Home() {
             </div>
           </div>
           <span className={styles.h2}>Galería</span>
-          <Image src={img5} />
-          <Image src={img1} />
-          <Image src={img2} />
-          <Image src={img3} />
-          <Image src={img4} />
-          <div className={styles.aboutContainer}>
-            <span className={styles.spanAbout}>Sobre</span>
-            <div className={styles.aboutDobleb}>
-              <Image src={dobleBImg} width={170} height={168}></Image>
+          <div>
+            <div className={styles.GaleryContainer}>
+              <Image src={img5} />
+              <Image src={img1} />
+              <Image src={img2} />
+              <Image src={img3} />
+              <Image src={img4} />
             </div>
-            <p>
-              Somos un estudio dedicado a varios sectores del estilo, tenemos
-              barberia en dónde realizamos cortes, afeitado, coloración y
-              diseños con navaja.
-            </p>
-            <p>
-              También contamos con un estudio de tattoos y de perforaciones en
-              el que hacemos todo tipos de diseños a medida.
-            </p>
-            <p>
-              Nos encontramos en Saavedra 2630 en Granadero Baigorria, Santa Fe
-            </p>
+            <div className={styles.aboutContainer}>
+              <span className={styles.spanAbout}>Sobre</span>
+              <div className={styles.aboutDobleb}>
+                <Image src={dobleBImg} width={155} height={158}></Image>
+              </div>
+              <p>
+                Somos un estudio dedicado a varios sectores del estilo, tenemos
+                barberia en dónde realizamos cortes, afeitado, coloración y
+                diseños con navaja.
+              </p>
+              <p>
+                También contamos con un estudio de tattoos y de perforaciones en
+                el que hacemos todo tipos de diseños a medida.
+              </p>
+              <p>
+                Nos encontramos en Saavedra 2630 en Granadero Baigorria, Santa
+                Fe
+              </p>
+            </div>
           </div>
         </div>
       </div>

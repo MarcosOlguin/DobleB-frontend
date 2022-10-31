@@ -123,4 +123,12 @@
 .aboutContainer p {
   padding: 0 2rem;
   font-size: 17px;
+  text-align: center;
+}
+
+.GaleryContainer {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
