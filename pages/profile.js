@@ -11,7 +11,8 @@ import { useRouter } from "next/router";
 
 function Profile() {
   const [data, setData] = useState(null);
-  const [loginRedirect, setloginRedirect] = useState();
+  const [appointExpired, setAppointExpired] = useState(false);
+
   //SUCCESSFUL ALERT
   const [successful, setSuccessful] = useState(false);
   const [resetPass, setResetPass] = useState(false);
@@ -25,14 +26,18 @@ function Profile() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:3010/user/profile", {
-          headers: {
-            Authorization: `Bearer ${jwt}`,
-          },
-        });
+        const res = await axios.get(
+          "https://dobleb.herokuapp.com/user/profile",
+          {
+            headers: {
+              Authorization: `Bearer ${jwt}`,
+            },
+          }
+        );
         setData(res.data);
         console.log(res);
       } catch (error) {
+        console.log(error);
         console.log(error.response.status);
         if (error.response.status === 403) {
           window.localStorage.clear("UserLogged");
@@ -105,16 +110,29 @@ function Profile() {
 
   useEffect(() => {
     if (data) {
-      console.log(
-        new Date(
-          "Tue Oct 25 2022 14:00:00 GMT-0300 (hora estándar de Argentina)"
-        ) <
-          new Date(
-            "Tue Oct 25 2022 16:00:00 GMT-0300 (hora estándar de Argentina)"
-          )
-      );
+      if (new Date(data.appointment) < new Date()) {
+        console.log(new Date(data.appointment) < new Date());
+
+        expires();
+      }
     }
   }, [data]);
+
+  const expires = () => {
+    try {
+      const res = axios.patch(
+        "http://localhost:3010/turno/cancelar-turno",
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${jwt}`,
+          },
+        }
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const handleCancel = () => {
     try {
@@ -196,6 +214,8 @@ function Profile() {
                   {data.appointment ? (
                     <div>
                       <p>{new Date(data.appointment).toLocaleString()}</p>
+                      {appointExpired && <span>Turno expirado</span>}
+
                       <button onClick={handleCancel}>Cancelar turno</button>
                     </div>
                   ) : (

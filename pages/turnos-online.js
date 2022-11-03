@@ -10,12 +10,22 @@ const ocupados = [
   "Tue Oct 18 2022 14:00:00 GMT-0300 (hora estándar de Argentina)",
   "Tue Oct 18 2022 15:00:00 GMT-0300 (hora estándar de Argentina)",
   "Tue Oct 25 2022 17:00:00 GMT-0300 (hora estándar de Argentina)",
-  "Sat Oct 22 2022 15:30:00 GMT-0300 (hora estándar de Argentina)",
+  "Sat Nov 22 2022 15:30:00 GMT-0300 (hora estándar de Argentina)",
 ];
 
 function OnlineAppointment() {
   const { jwt, setJwt } = useContext(Context);
   const [appointBusy, setAppointBusy] = useState(null);
+
+  const sumDays = (date, days) => {
+    date.setDate(date.getDate() + days);
+    return date;
+  };
+
+  const isClosed = (date) => {
+    const day = date.getDay();
+    return day !== 0 && day !== 1;
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,6 +38,10 @@ function OnlineAppointment() {
         setAppointBusy(res.data);
       } catch (error) {
         console.log(error.response);
+        if (error.response.status === 403) {
+          window.localStorage.clear("UserLogged");
+          setJwt(null);
+        }
       }
     };
     if (jwt) fetchData();
@@ -87,7 +101,6 @@ function OnlineAppointment() {
       );
       if (res) alert("enviado");
     } catch (error) {
-      console.error(error.response.data);
       if (error.response.data === "Ya tienes un turno reservado")
         alert("Ya tienes un turno reservado");
     }
@@ -97,44 +110,86 @@ function OnlineAppointment() {
     <>
       <NavBarNotLogged />
       <div className={styles.container}>
-        <DatePicker
-          selected={dateSelected}
-          timeFormat="HH:mm"
-          onChange={handleChange}
-          inline
-          dateFormat="MMMM d, yyyy h:mm aa"
-          excludeDates={[
-            new Date(
-              "Sat Oct 20 2022 17:00:00 GMT-0300 (hora estándar de Argentina)"
-            ),
-          ]}
-        />
-
-        <button disabled={!updated[14]} onClick={reserve} value={updated[14]}>
-          14:00
-        </button>
-        <button disabled={!updated[143]} onClick={reserve} value={updated[143]}>
-          14:30
-        </button>
-        <button disabled={!updated[15]} onClick={reserve} value={updated[15]}>
-          15:00
-        </button>
-        <button disabled={!updated[153]} onClick={reserve} value={updated[153]}>
-          15:30
-        </button>
-        <button disabled={!updated[16]} onClick={reserve} value={updated[16]}>
-          16:00
-        </button>
-        <button disabled={!updated[163]} onClick={reserve} value={updated[163]}>
-          16:30
-        </button>
-        <button disabled={!updated[17]} onClick={reserve} value={updated[17]}>
-          17:00
-        </button>
-        <button disabled={!updated[173]} onClick={reserve} value={updated[173]}>
-          17:30
-        </button>
-        <button onClick={handleReserve}>Reservar</button>
+        <div className={styles.calendarContainer}>
+          <div className={styles.disabled}></div>
+          <DatePicker
+            selected={dateSelected}
+            timeFormat="HH:mm"
+            onChange={handleChange}
+            inline
+            dateFormat="MMMM d, yyyy h:mm aa"
+            minDate={new Date()}
+            maxDate={sumDays(new Date(), 30)}
+            filterDate={isClosed}
+          />
+        </div>
+        {jwt ? (
+          <>
+            <div>
+              <button
+                disabled={!updated[14]}
+                onClick={reserve}
+                value={updated[14]}
+              >
+                14:00
+              </button>
+              <button
+                disabled={!updated[143]}
+                onClick={reserve}
+                value={updated[143]}
+              >
+                14:30
+              </button>
+              <button
+                disabled={!updated[15]}
+                onClick={reserve}
+                value={updated[15]}
+              >
+                15:00
+              </button>
+              <button
+                disabled={!updated[153]}
+                onClick={reserve}
+                value={updated[153]}
+              >
+                15:30
+              </button>
+              <button
+                disabled={!updated[16]}
+                onClick={reserve}
+                value={updated[16]}
+              >
+                16:00
+              </button>
+              <button
+                disabled={!updated[163]}
+                onClick={reserve}
+                value={updated[163]}
+              >
+                16:30
+              </button>
+              <button
+                disabled={!updated[17]}
+                onClick={reserve}
+                value={updated[17]}
+              >
+                17:00
+              </button>
+              <button
+                disabled={!updated[173]}
+                onClick={reserve}
+                value={updated[173]}
+              >
+                17:30
+              </button>
+              <button onClick={handleReserve}>Reservar</button>
+            </div>
+          </>
+        ) : (
+          <>
+            <div>Debes tener una sesion abierta para reservar un turno</div>
+          </>
+        )}
       </div>
     </>
   );

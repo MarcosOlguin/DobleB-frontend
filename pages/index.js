@@ -34,7 +34,7 @@ function Home() {
       ></Script>
       <NavBarNotLogged />
       <div className={styles.containerr}>
-        <div style={{ backgroundColor: "#e2e2e2" }}>
+        <div className={styles.topBackground}>
           <div className={styles.imgContainer}>
             <p>Creamos tu mejor imagen</p>
             <Image className={styles.backgroundImage} src={backgroundImage} />
