@@ -59,7 +59,7 @@ function Profile() {
   const handleUpdate = async () => {
     try {
       const res = await axios.patch(
-        "http://localhost:3010/user/update-data",
+        "https://dobleb.herokuapp.com/user/update-data",
         {
           data: {
             name: data.name,
@@ -118,9 +118,9 @@ function Profile() {
     }
   }, [data]);
 
-  const expires = () => {
+  const expires = async () => {
     try {
-      const res = axios.patch(
+      const res = await axios.patch(
         "http://localhost:3010/turno/cancelar-turno",
         {},
         {
