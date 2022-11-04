@@ -50,9 +50,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 25vh;
-  gap: 5vh;
-  margin-bottom: 2rem;
+  height: 100%;
+  gap: 0vh;
 }
 
 .phoneContainer input {
@@ -176,7 +175,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 8vh;
+  gap: 20vh;
+  height: 100%;
 }
 
 .loading {
