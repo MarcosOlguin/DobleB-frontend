@@ -1,5 +1,5 @@
 .container {
-  background-color: #414141;
+  background-color: #0a0922;
   color: white;
   height: 45vh;
   display: flex;
@@ -10,7 +10,6 @@
   padding: auto;
   padding: 0 2rem;
   gap: 2vh;
-  background: linear-gradient(#0a0922, black);
 }
 
 .p {

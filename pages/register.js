@@ -128,83 +128,88 @@ function Register() {
         </div>
 
         <div>
-          <form onSubmit={handleSubmit}>
-            <div className={styles.nameContainer}>
-              <div className={styles.inputContainer}>
-                <span>Nombre</span>
-                <input
-                  minLength="2"
-                  required
-                  className={styles.input}
-                  onChange={handleChange}
-                  type="text"
-                  name="name"
-                  placeholder="Nombre"
-                  value={input.name}
-                />
-              </div>
-
-              <div className={styles.inputContainer}>
-                <span>Apellido</span>
-                <input
-                  minLength="3"
-                  required
-                  onChange={handleChange}
-                  type="text"
-                  name="surname"
-                  placeholder="Apellido"
-                  value={input.surname}
-                />
-              </div>
-            </div>
-            <div className={styles.phoneContainer}>
-              <div className={styles.inputContainer}>
-                <span>Teléfono</span>
-                <input
-                  required
-                  onChange={handleChange}
-                  type="number"
-                  name="phone"
-                  placeholder="Telefono"
-                  value={input.phone}
-                  onFocus={() => {
-                    setValidations(false);
-                  }}
-                />
-                {validations && (
-                  <span className={styles.inputValidation}>
-                    Introduce un numero válido
-                  </span>
-                )}
-              </div>
-
-              <div className={styles.inputContainer}>
-                <span>E-mail</span>
-                <input
-                  required
-                  onChange={handleChange}
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  value={input.email}
-                />
-              </div>
-              <div className={styles.inputContainer}>
-                <span>Contraseña</span>
-                <div className={styles.seePassword}>
+          <form className={styles.formContainer} onSubmit={handleSubmit}>
+            <div>
+              <div className={styles.nameContainer}>
+                <div className={styles.inputContainer}>
+                  <span>Nombre</span>
                   <input
-                    pattern=".{6,}"
-                    title="6 caracteres mínimo"
+                    minLength="2"
+                    required
+                    className={styles.input}
+                    onChange={handleChange}
+                    type="text"
+                    name="name"
+                    placeholder="Nombre"
+                    value={input.name}
+                  />
+                </div>
+
+                <div className={styles.inputContainer}>
+                  <span>Apellido</span>
+                  <input
+                    minLength="3"
                     required
                     onChange={handleChange}
-                    type={visibilityPassword ? "text" : "password"}
-                    name="password"
-                    placeholder="Contraseña"
-                    value={input.password}
+                    type="text"
+                    name="surname"
+                    placeholder="Apellido"
+                    value={input.surname}
                   />
-                  <span onClick={handleSee} className={styles.materialIconsSee}>
-                    {!visibilityPassword ? "visibility" : "visibility_off"}
-                  </span>
+                </div>
+              </div>
+              <div className={styles.phoneContainer}>
+                <div className={styles.inputContainer}>
+                  <span>Teléfono</span>
+                  <input
+                    required
+                    onChange={handleChange}
+                    type="number"
+                    name="phone"
+                    placeholder="Telefono"
+                    value={input.phone}
+                    onFocus={() => {
+                      setValidations(false);
+                    }}
+                  />
+                  {validations && (
+                    <span className={styles.inputValidation}>
+                      Introduce un numero válido
+                    </span>
+                  )}
+                </div>
+
+                <div className={styles.inputContainer}>
+                  <span>E-mail</span>
+                  <input
+                    required
+                    onChange={handleChange}
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    value={input.email}
+                  />
+                </div>
+                <div className={styles.inputContainer}>
+                  <span>Contraseña</span>
+                  <div className={styles.seePassword}>
+                    <input
+                      pattern=".{6,}"
+                      title="6 caracteres mínimo"
+                      required
+                      onChange={handleChange}
+                      type={visibilityPassword ? "text" : "password"}
+                      name="password"
+                      placeholder="Contraseña"
+                      value={input.password}
+                    />
+                    <span
+                      onClick={handleSee}
+                      className={styles.materialIconsSee}
+                    >
+                      {!visibilityPassword ? "visibility" : "visibility_off"}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>

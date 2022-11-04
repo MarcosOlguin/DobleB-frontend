@@ -30,11 +30,14 @@ function OnlineAppointment() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:3010/turno/reservados", {
-          headers: {
-            Authorization: `Bearer ${jwt}`,
-          },
-        });
+        const res = await axios.get(
+          "https://dobleb.herokuapp.com/turno/reservados",
+          {
+            headers: {
+              Authorization: `Bearer ${jwt}`,
+            },
+          }
+        );
         setAppointBusy(res.data);
       } catch (error) {
         console.log(error.response);
@@ -91,7 +94,7 @@ function OnlineAppointment() {
   const handleReserve = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:3010/turno/reservar",
+        "https://dobleb.herokuapp.com/turno/reservar",
         { date: reserveDate.toString() },
         {
           headers: {

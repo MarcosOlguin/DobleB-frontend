@@ -3,12 +3,10 @@ import NavBar from "../components/navbar/Navbar";
 import styles from "../styles/Login.module.css";
 import { app, passwordReset } from "../firebase.js";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import axios from "axios";
 import { useRouter } from "next/router";
 import Context from "../context/UserContext";
 import NavBarNotLogged from "../components/navbar/NavbarNotLogged";
 import SuccessfulAlert from "../components/SuccessfulAlert";
-import { async } from "@firebase/util";
 import ErrorAlert from "../components/ErrorAlert";
 
 function Login() {

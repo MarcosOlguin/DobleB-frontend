@@ -95,46 +95,9 @@
   font-feature-settings: "liga";
 }
 
-.editContainer {
-  display: flex;
-  flex-direction: column;
-  height: 80vh;
-  justify-content: flex-start;
-  gap: 5vh;
-  width: 100vw;
-  color: black;
-  background-color: white;
-  border-top-left-radius: 40px;
-  border-top-right-radius: 50px;
-  padding-left: 2rem;
-}
-
-.editContainer input {
-  background-color: transparent;
-  border: none;
-  border: 1px solid #707b7c;
-  padding: 0.6rem;
-  border-radius: 20px;
-  color: black;
-}
-
-.editBtnsContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 4vh;
-}
-
-.editBtnsContainer button {
-  font-size: 18px;
-  background-color: #0a0922;
-  border-radius: 5px;
-  padding: 0.5rem;
-  border: none;
-}
-
 .notLogged {
   height: 90vh;
-  background-color: #1c2833;
+  background-color: #414141;
   color: white;
   display: flex;
   justify-content: center;

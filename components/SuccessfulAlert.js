@@ -4,7 +4,6 @@ import { AnimatePresence, motion } from "framer-motion";
 
 function SuccessfulAlert({ activated, setFunction, text }) {
   const [enabled, setEnabled] = useState(false);
-  console.log(activated);
 
   useEffect(() => {
     if (activated === true) {

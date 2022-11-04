@@ -1,11 +1,13 @@
 .container {
   padding: 0 2.3rem;
-  height: 90vh;
+  height: 100vh;
   max-width: 1000px;
   margin: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  background-color: #e7edea;
+  color: black;
 }
 
 .titleContainer {
@@ -49,7 +51,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 25vh;
-  gap: 10px;
+  gap: 5vh;
   margin-bottom: 2rem;
 }
 
@@ -82,6 +84,7 @@
   align-items: center;
   justify-content: center;
   gap: 5px;
+  color: white;
 }
 
 .materialIcons {
@@ -114,7 +117,7 @@
 }
 
 .btnLogin {
-  background-color: white;
+  background-color: #e7edea;
   color: #8f8f8f;
   border: none;
   font-weight: 600;
@@ -132,6 +135,7 @@
 
 .inputContainer span {
   font-size: 16px;
+  color: black;
 }
 
 .materialIconsSee {
@@ -167,4 +171,11 @@
 
 .seePassword {
   display: flex;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8vh;
 }

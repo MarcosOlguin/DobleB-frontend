@@ -1,13 +1,14 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import NavBar from "../components/navbar/Navbar";
 import Context from "../context/UserContext";
 import styles from "../styles/Profile.module.css";
 import { user, updatePass } from "../firebase.js";
-import { getAuth, sendPasswordResetEmail, signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import SuccessfulAlert from "../components/SuccessfulAlert";
 import NavBarNotLogged from "../components/navbar/NavbarNotLogged";
 import { useRouter } from "next/router";
+import ProfileEdit from "../components/profile/ProfileEdit";
+import PropagateLoader from "react-spinners/SyncLoader";
 
 function Profile() {
   const [data, setData] = useState(null);
@@ -35,7 +36,6 @@ function Profile() {
           }
         );
         setData(res.data);
-        console.log(res);
       } catch (error) {
         console.log(error);
         console.log(error.response.status);
@@ -45,7 +45,11 @@ function Profile() {
         }
       }
     };
-    if (jwt) fetchData();
+    if (jwt) {
+      fetchData();
+    } else {
+      router.push("/");
+    }
   }, [jwt, cancelAppoint]);
 
   const handleChange = (e) => {
@@ -95,24 +99,14 @@ function Profile() {
       await signOut(user);
       setJwt(null);
       window.localStorage.clear("UserLogged");
-      router.push("/login");
-      console.log(token);
     } catch (error) {
       console.error(error.code);
     }
   };
 
-  const redirect = () => {
-    setloginRedirect(true);
-  };
-
-  console.log(data);
-
   useEffect(() => {
     if (data) {
       if (new Date(data.appointment) < new Date()) {
-        console.log(new Date(data.appointment) < new Date());
-
         expires();
       }
     }
@@ -121,7 +115,7 @@ function Profile() {
   const expires = async () => {
     try {
       const res = await axios.patch(
-        "http://localhost:3010/turno/cancelar-turno",
+        "https://dobleb.herokuapp.com/turno/cancelar-turno",
         {},
         {
           headers: {
@@ -137,7 +131,7 @@ function Profile() {
   const handleCancel = () => {
     try {
       const res = axios.patch(
-        "http://localhost:3010/turno/cancelar-turno",
+        "https://dobleb.herokuapp.com/turno/cancelar-turno",
         {},
         {
           headers: {
@@ -154,6 +148,7 @@ function Profile() {
   return (
     <>
       <NavBarNotLogged />
+
       {data ? (
         <div className={styles.background}>
           <div className={styles.h1Container}>
@@ -164,53 +159,17 @@ function Profile() {
           </div>
 
           {edit ? (
-            <div className={styles.editContainer}>
-              <div className={styles.editSubContainer}>
-                <div>
-                  <p>Nombre</p>
-                  <input
-                    value={data.name}
-                    onChange={handleChange}
-                    name="name"
-                  />
-                </div>
-                <div>
-                  <p>Apellido</p>
-                  <input
-                    value={data.surname}
-                    onChange={handleChange}
-                    name="surname"
-                  />
-                </div>
-                <div>
-                  <p>Email</p>
-                  <input
-                    value={data.email}
-                    onChange={handleChange}
-                    name="email"
-                  />
-                </div>
-                <div>
-                  <p>Teléfono</p>
-                  <input
-                    value={data.phoneNumber}
-                    onChange={handleChange}
-                    name="phoneNumber"
-                  />
-                </div>
-              </div>
-              <div className={styles.editBtnsContainer}>
-                <button onClick={handleUpdate}>Guardar cambios</button>
-                <button onClick={handlePassReset}>
-                  Reestablecer contraseña
-                </button>
-              </div>
-            </div>
+            <ProfileEdit
+              handleChange={handleChange}
+              handlePassReset={handlePassReset}
+              handleUpdate={handleUpdate}
+              data={data}
+            />
           ) : (
             <>
               <div className={styles.container}>
                 <div>
-                  <h2>TusTurnos</h2>
+                  <h2>Tus Turnos</h2>
                   {data.appointment ? (
                     <div>
                       <p>{new Date(data.appointment).toLocaleString()}</p>
@@ -230,7 +189,7 @@ function Profile() {
                   />
                 </div>
                 <div className={styles.editDates}>
-                  <p>Tus datos</p>
+                  <h2>Tus datos</h2>
                   <div
                     onClick={() => {
                       setEdit(true);
@@ -276,8 +235,8 @@ function Profile() {
           )}
         </div>
       ) : (
-        <div onLoad={redirect} className={styles.notLogged}>
-          <p>No tenes una sesion abierta!</p>
+        <div className={styles.notLogged}>
+          <PropagateLoader color={"#ffff"} />
         </div>
       )}
     </>
