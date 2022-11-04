@@ -8,6 +8,7 @@ import Context from "../context/UserContext";
 import { Router, useRouter } from "next/router";
 import ErrorAlert from "../components/ErrorAlert";
 import NavBarNotLogged from "../components/navbar/NavbarNotLogged";
+import PropagateLoader from "react-spinners/SyncLoader";
 
 function Register() {
   const { jwt, setJwt } = useContext(Context);
@@ -15,9 +16,10 @@ function Register() {
   const [emailExists, setEmailExists] = useState(false);
   const [phoneExists, setPhoneExists] = useState(false);
   const [visibilityPassword, setVisibilityPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   useEffect(() => {
-    if (jwt !== null) router.push(`/home`);
+    if (jwt !== null) router.push(`/`);
   }, [jwt]);
   const [input, setInput] = useState({
     name: "",
@@ -45,19 +47,20 @@ function Register() {
 
     let token = null;
     try {
-      const res = await axios.post("http://localhost:3010/user/register", {
-        email: input.email,
-        password: input.password,
-        phoneNumber: `+54${input.phone}`,
-        name: input.name,
-        surname: input.surname,
-      });
+      setLoading(true);
+      const res = await axios.post(
+        "https://dobleb.herokuapp.com/user/register",
+        {
+          email: input.email,
+          password: input.password,
+          phoneNumber: `+54${input.phone}`,
+          name: input.name,
+          surname: input.surname,
+        }
+      );
 
-      console.log(res);
       if (res) {
-        alert("EXITOOO");
         token = res.data.jwt;
-        console.log(token);
         try {
           const auth = getAuth(app);
           const res = await signInWithCustomToken(auth, token);
@@ -68,8 +71,6 @@ function Register() {
             );
             setJwt(res._tokenResponse.idToken);
           }
-
-          console.log(res._tokenResponse.idToken);
         } catch (error) {
           console.log(error);
         }
@@ -105,6 +106,12 @@ function Register() {
   return (
     <div>
       <NavBarNotLogged />
+      {loading && (
+        <div className={styles.loading}>
+          <PropagateLoader color="#ffff" />
+        </div>
+      )}
+
       <ErrorAlert
         text="El numero de teléfono ya se encuentra en uso"
         activated={phoneExists}
