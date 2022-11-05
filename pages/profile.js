@@ -171,11 +171,18 @@ function Profile() {
                 <div>
                   <h2>Tus Turnos</h2>
                   {data.appointment ? (
-                    <div>
-                      <p>{new Date(data.appointment).toLocaleString()}</p>
+                    <div className={styles.appointContainer}>
+                      <p className={styles.p}>
+                        {new Date(data.appointment).toLocaleString()}
+                      </p>
                       {appointExpired && <span>Turno expirado</span>}
 
-                      <button onClick={handleCancel}>Cancelar turno</button>
+                      <button
+                        onClick={handleCancel}
+                        className={styles.btnCancel}
+                      >
+                        Cancelar turno
+                      </button>
                     </div>
                   ) : (
                     <>

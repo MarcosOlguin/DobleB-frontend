@@ -107,3 +107,18 @@
   font-size: 20px;
   font-weight: bold;
 }
+
+.btnCancel {
+  background-color: black;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.p {
+  margin-bottom: 8px;
+}
+
+.appointContainer {
+  padding-bottom: 2rem;
+}

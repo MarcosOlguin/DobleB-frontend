@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "../styles/Footer.module.css";
 
 function Footer() {
@@ -5,15 +6,30 @@ function Footer() {
     <div className={styles.container}>
       <div className={styles.socialContainer}>
         <p>Nuestras Redes</p>
-        <span>
-          <i className="fa-brands fa-instagram"></i>Doble-B
-        </span>
-        <span>
-          <i className="fa-brands fa-instagram"></i>Santiago Benitez
-        </span>
-        <span>
-          <i className="fa-brands fa-instagram"></i>Nicolas Benitez
-        </span>
+        <Link
+          target="_blank"
+          href={"https://www.instagram.com/doble_b_estudio/"}
+        >
+          <a>
+            {" "}
+            <i className="fa-brands fa-instagram"></i>Doble B
+          </a>
+        </Link>
+        <Link target="_blank" href={"https://www.instagram.com/santi.rc1889/"}>
+          <a>
+            {" "}
+            <i className="fa-brands fa-instagram"></i>Santiago Benitez
+          </a>
+        </Link>
+        <Link
+          target="_blank"
+          href={"https://www.instagram.com/nico.benitez111/"}
+        >
+          <a>
+            {" "}
+            <i className="fa-brands fa-instagram"></i>Nico Benitez
+          </a>
+        </Link>
       </div>
       <p className={styles.p}>
         Saavedra 2630, Granadero Baigorria, Santa Fe, Argentina

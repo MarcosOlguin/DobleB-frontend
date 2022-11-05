@@ -42,13 +42,13 @@
   height: 40vh;
   width: 80vw;
   border-radius: 10px;
-  background-color: #414141;
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 2px 4px 10px 2-px grey;
-  color: white;
+  box-shadow: 2px 3px 15px -7px black;
+  color: black;
 }
 
 .imgContainer {

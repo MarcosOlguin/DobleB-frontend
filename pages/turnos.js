@@ -33,7 +33,7 @@ function Turnos() {
               route.push("/turnos-online");
             }}
           >
-            Reservar online
+            Reservar Online
             <i class="fa-solid fa-xl fa-calendar-days"></i>
           </button>
           <span>Solo para barberia</span>

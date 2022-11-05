@@ -63,6 +63,7 @@
   align-items: center;
   padding-left: 10px;
   gap: 4vw;
+  background: linear-gradient(90deg, #4c2c7d, black);
 }
 
 .servicesLeft img {
@@ -85,6 +86,7 @@
   gap: 1vw;
   color: white;
   padding-right: 4vw;
+  background: linear-gradient(200deg, #4c2c7d, black);
 }
 
 .servicesRight span {
