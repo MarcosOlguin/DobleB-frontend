@@ -5,17 +5,25 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Context from "../context/UserContext";
-
-const ocupados = [
-  "Tue Oct 18 2022 14:00:00 GMT-0300 (hora estándar de Argentina)",
-  "Tue Oct 18 2022 15:00:00 GMT-0300 (hora estándar de Argentina)",
-  "Tue Oct 25 2022 17:00:00 GMT-0300 (hora estándar de Argentina)",
-  "Sat Nov 22 2022 15:30:00 GMT-0300 (hora estándar de Argentina)",
-];
+import ClipLoader from "react-spinners/ClipLoader";
+import ConfirmAppoint from "../components/ConfirmAppoint";
+import ErrorAlert from "../components/ErrorAlert";
+import SuccessfulAlert from "../components/SuccessfulAlert";
+import { useRouter } from "next/router";
 
 function OnlineAppointment() {
   const { jwt, setJwt } = useContext(Context);
   const [appointBusy, setAppointBusy] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [dateSelected, setDateSelected] = useState(new Date());
+  const [updated, setUpdated] = useState({});
+  const [reserveDate, setReserveDate] = useState(null);
+  const [next, setNext] = useState(false);
+  //ALERT
+  const [alreadyAppoint, setAlreadyAppoint] = useState(false);
+  const [appointSuccessful, setAppointSuccessful] = useState(false);
+
+  const router = useRouter();
 
   const sumDays = (date, days) => {
     date.setDate(date.getDate() + days);
@@ -29,6 +37,7 @@ function OnlineAppointment() {
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
         const res = await axios.get(
           "https://dobleb.herokuapp.com/turno/reservados",
@@ -45,6 +54,8 @@ function OnlineAppointment() {
           window.localStorage.clear("UserLogged");
           setJwt(null);
         }
+      } finally {
+        setLoading(false);
       }
     };
     if (jwt) fetchData();
@@ -57,10 +68,6 @@ function OnlineAppointment() {
     if (res) return false;
     return date;
   };
-
-  const [dateSelected, setDateSelected] = useState(new Date());
-  const [updated, setUpdated] = useState({});
-  const [reserveDate, setReserveDate] = useState(null);
 
   useEffect(() => {
     const xd = () => {
@@ -91,109 +98,160 @@ function OnlineAppointment() {
     setReserveDate(date);
   };
 
-  const handleReserve = async () => {
+  const handleReserve = async (reserveDate) => {
     try {
       const res = await axios.post(
         "https://dobleb.herokuapp.com/turno/reservar",
-        { date: reserveDate.toString() },
+        { date: reserveDate },
         {
           headers: {
             Authorization: `Bearer ${jwt}`,
           },
         }
       );
-      if (res) alert("enviado");
+      if (res) {
+        setAppointSuccessful(true);
+        (() => {
+          setTimeout(() => {
+            router.push("/profile");
+          }, 2000);
+        })();
+      }
     } catch (error) {
+      console.error(error);
       if (error.response.data === "Ya tienes un turno reservado")
-        alert("Ya tienes un turno reservado");
+        //  alert("Ya tienes un turno reservado");
+        setAlreadyAppoint(true);
     }
+  };
+
+  const handleNext = () => {
+    setNext(true);
   };
 
   return (
     <>
+      <ErrorAlert
+        text={"Ya tienes un turno reservado"}
+        setFunction={setAlreadyAppoint}
+        activated={alreadyAppoint}
+      />
+      <SuccessfulAlert
+        text={"Turno reservado con éxito!"}
+        setFunction={setAppointSuccessful}
+        activated={appointSuccessful}
+      />
       <NavBarNotLogged />
-      <div className={styles.container}>
-        <div className={styles.calendarContainer}>
-          <div className={styles.disabled}></div>
-          <DatePicker
-            selected={dateSelected}
-            timeFormat="HH:mm"
-            onChange={handleChange}
-            inline
-            dateFormat="MMMM d, yyyy h:mm aa"
-            minDate={new Date()}
-            maxDate={sumDays(new Date(), 30)}
-            filterDate={isClosed}
-          />
+      {!next ? (
+        <div className={styles.container}>
+          <h2>Selecciona la fecha</h2>
+          <div className={styles.calendarContainer}>
+            <div className={styles.disabled}></div>
+            <DatePicker
+              selected={dateSelected}
+              timeFormat="HH:mm"
+              onChange={handleChange}
+              inline
+              dateFormat="MMMM d, yyyy h:mm aa"
+              minDate={new Date()}
+              maxDate={sumDays(new Date(), 30)}
+              filterDate={isClosed}
+            />
+          </div>
+          {jwt ? (
+            <>
+              {!loading ? (
+                <>
+                  <p>Horarios disponibles</p>
+                  <div className={styles.btnsContainer}>
+                    <button
+                      disabled={!updated[14]}
+                      onClick={reserve}
+                      value={updated[14]}
+                    >
+                      14:00
+                    </button>
+                    <button
+                      disabled={!updated[143]}
+                      onClick={reserve}
+                      value={updated[143]}
+                    >
+                      14:30
+                    </button>
+                    <button
+                      disabled={!updated[15]}
+                      onClick={reserve}
+                      value={updated[15]}
+                    >
+                      15:00
+                    </button>
+                    <button
+                      disabled={!updated[153]}
+                      onClick={reserve}
+                      value={updated[153]}
+                    >
+                      15:30
+                    </button>
+                    <button
+                      disabled={!updated[16]}
+                      onClick={reserve}
+                      value={updated[16]}
+                    >
+                      16:00
+                    </button>
+                    <button
+                      disabled={!updated[163]}
+                      onClick={reserve}
+                      value={updated[163]}
+                    >
+                      16:30
+                    </button>
+                    <button
+                      disabled={!updated[17]}
+                      onClick={reserve}
+                      value={updated[17]}
+                    >
+                      17:00
+                    </button>
+                    <button
+                      disabled={!updated[173]}
+                      onClick={reserve}
+                      value={updated[173]}
+                    >
+                      17:30
+                    </button>
+                  </div>
+                  <div>
+                    Fecha seleccionada{" "}
+                    {new Date(dateSelected).toLocaleDateString()} a las{" "}
+                    {new Date(reserveDate).toLocaleTimeString()}
+                  </div>
+                  <div className={styles.nextBtnContainer}>
+                    <button className={styles.btnReserve} onClick={handleNext}>
+                      Siguiente
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <div className={styles.loaderContainer}>
+                  <ClipLoader size={60} />
+                </div>
+              )}
+            </>
+          ) : (
+            <>
+              <div>Debes tener una sesion abierta para reservar un turno</div>
+            </>
+          )}
         </div>
-        {jwt ? (
-          <>
-            <div>
-              <button
-                disabled={!updated[14]}
-                onClick={reserve}
-                value={updated[14]}
-              >
-                14:00
-              </button>
-              <button
-                disabled={!updated[143]}
-                onClick={reserve}
-                value={updated[143]}
-              >
-                14:30
-              </button>
-              <button
-                disabled={!updated[15]}
-                onClick={reserve}
-                value={updated[15]}
-              >
-                15:00
-              </button>
-              <button
-                disabled={!updated[153]}
-                onClick={reserve}
-                value={updated[153]}
-              >
-                15:30
-              </button>
-              <button
-                disabled={!updated[16]}
-                onClick={reserve}
-                value={updated[16]}
-              >
-                16:00
-              </button>
-              <button
-                disabled={!updated[163]}
-                onClick={reserve}
-                value={updated[163]}
-              >
-                16:30
-              </button>
-              <button
-                disabled={!updated[17]}
-                onClick={reserve}
-                value={updated[17]}
-              >
-                17:00
-              </button>
-              <button
-                disabled={!updated[173]}
-                onClick={reserve}
-                value={updated[173]}
-              >
-                17:30
-              </button>
-              <button onClick={handleReserve}>Reservar</button>
-            </div>
-          </>
-        ) : (
-          <>
-            <div>Debes tener una sesion abierta para reservar un turno</div>
-          </>
-        )}
-      </div>
+      ) : (
+        <ConfirmAppoint
+          dateSelected={dateSelected}
+          reserveDate={reserveDate}
+          handleReserve={handleReserve}
+        />
+      )}
     </>
   );
 }

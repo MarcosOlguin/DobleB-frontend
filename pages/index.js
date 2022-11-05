@@ -50,7 +50,7 @@ function Home() {
           </button>
         </div>
 
-        <div className={styles.container}>
+        <div id="services" className={styles.container}>
           {" "}
           <span className={styles.h2}>Nuestros servicios</span>
           <div className={styles.servicesContainer}>
@@ -87,7 +87,7 @@ function Home() {
               <Image src={img3} />
               <Image src={img4} />
             </div>
-            <div className={styles.aboutContainer}>
+            <div id="about" className={styles.aboutContainer}>
               <span className={styles.spanAbout}>Sobre</span>
               <div className={styles.aboutDobleb}>
                 <Image src={dobleBImg} width={155} height={158}></Image>
@@ -101,10 +101,7 @@ function Home() {
                 También contamos con un estudio de tattoos y de perforaciones en
                 el que hacemos todo tipos de diseños a medida.
               </p>
-              <p>
-                Nos encontramos en Saavedra 2630 en Granadero Baigorria, Santa
-                Fe
-              </p>
+              <p>Encontranos en Saavedra 2630, Granadero Baigorria, Santa Fe</p>
             </div>
           </div>
         </div>

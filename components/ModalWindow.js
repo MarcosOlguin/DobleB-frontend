@@ -23,10 +23,10 @@ function ModalWindow({ isOpen, setIsOpen }) {
           <Link href="/turnos">
             <a>Turnos</a>
           </Link>
-          <Link href="/Sobre nosotros">
+          <Link href="#services">
             <a>Servicios</a>
           </Link>
-          <Link href="/turnos">
+          <Link href="#about">
             <a>Nosotros</a>
           </Link>
         </div>

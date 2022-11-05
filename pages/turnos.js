@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import tattooIcon from "../public/tattoo.png";
+import Footer from "../components/Footer";
 
 function Turnos() {
   const route = useRouter();
@@ -25,13 +26,18 @@ function Turnos() {
           </span>
         </div>
 
-        <button
-          onClick={() => {
-            route.push("/turnos-online");
-          }}
-        >
-          Reservar online
-        </button>
+        <div className={styles.btnOnlineContainer}>
+          <button
+            className={styles.btnOnline}
+            onClick={() => {
+              route.push("/turnos-online");
+            }}
+          >
+            Reservar online
+            <i class="fa-solid fa-xl fa-calendar-days"></i>
+          </button>
+          <span>Solo para barberia</span>
+        </div>
 
         <div>
           <p className={styles.p}>
@@ -80,6 +86,7 @@ function Turnos() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

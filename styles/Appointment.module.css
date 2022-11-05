@@ -2,7 +2,7 @@
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 1rem;
-  height: 90vh;
+  height: 100%;
   padding-top: 5vh;
   background-color: #e2e2e2;
 
@@ -40,7 +40,8 @@
 
 .barbarContainer {
   height: 40vh;
-  width: 100vw;
+  width: 80vw;
+  border-radius: 10px;
   background-color: #414141;
   display: flex;
   flex-direction: column;
@@ -75,4 +76,31 @@
   font-size: 20px;
   text-align: center;
   margin: 0;
+  margin-bottom: 1rem;
+}
+
+.btnOnline {
+  border: none;
+  padding: 2vh 12vw;
+  border-radius: 10px;
+  background-color: #4c2c7d;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 50vw;
+  font-size: 16px;
+  gap: 20px;
+}
+
+.btnOnlineContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1vh;
+}
+
+.btnOnlineContainer span {
+  font-size: 14px;
 }
