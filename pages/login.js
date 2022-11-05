@@ -8,6 +8,7 @@ import Context from "../context/UserContext";
 import NavBarNotLogged from "../components/navbar/NavbarNotLogged";
 import SuccessfulAlert from "../components/SuccessfulAlert";
 import ErrorAlert from "../components/ErrorAlert";
+import SyncLoader from "react-spinners/SyncLoader";
 
 function Login() {
   //TOKEN
@@ -26,6 +27,7 @@ function Login() {
     password: "",
   });
   //
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (jwt !== null) router.push(`/`);
@@ -45,6 +47,7 @@ function Login() {
     const auth = getAuth(app);
 
     try {
+      setLoading(true);
       const res = await signInWithEmailAndPassword(
         auth,
         credentials.email,
@@ -52,7 +55,6 @@ function Login() {
       );
 
       if (res) {
-        console.log(res._tokenResponse);
         window.localStorage.setItem(
           "UserLogged",
           JSON.stringify(res._tokenResponse.idToken)
@@ -61,6 +63,8 @@ function Login() {
       }
     } catch (error) {
       setWrongCredentials(true);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -90,6 +94,11 @@ function Login() {
 
   return (
     <div>
+      {loading && (
+        <div className={styles.loading}>
+          <SyncLoader color="#ffff" />
+        </div>
+      )}
       {!resetPassword ? (
         <>
           {jwt ? <NavBar /> : <NavBarNotLogged />}
