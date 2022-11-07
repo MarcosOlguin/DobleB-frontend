@@ -10,6 +10,7 @@ import ConfirmAppoint from "../components/ConfirmAppoint";
 import ErrorAlert from "../components/ErrorAlert";
 import SuccessfulAlert from "../components/SuccessfulAlert";
 import { useRouter } from "next/router";
+import Footer from "../components/Footer";
 
 function OnlineAppointment() {
   const { jwt, setJwt } = useContext(Context);
@@ -19,6 +20,7 @@ function OnlineAppointment() {
   const [updated, setUpdated] = useState({});
   const [reserveDate, setReserveDate] = useState(null);
   const [next, setNext] = useState(false);
+  const [invalidDate, setInvalidDate] = useState(false);
   //ALERT
   const [alreadyAppoint, setAlreadyAppoint] = useState(false);
   const [appointSuccessful, setAppointSuccessful] = useState(false);
@@ -88,6 +90,15 @@ function OnlineAppointment() {
     }
   }, [dateSelected, appointBusy]);
 
+  useEffect(() => {
+    if (dateSelected.getDay() === 0 || dateSelected.getDay() === 1) {
+      setInvalidDate(true);
+    } else {
+      setInvalidDate(false);
+    }
+  }, [dateSelected]);
+
+  console.log(invalidDate);
   const handleChange = (e) => {
     setDateSelected(e);
     console.log(e);
@@ -143,107 +154,122 @@ function OnlineAppointment() {
       />
       <NavBarNotLogged />
       {!next ? (
-        <div className={styles.container}>
-          <h2>Selecciona la fecha</h2>
-          <div className={styles.calendarContainer}>
-            <div className={styles.disabled}></div>
-            <DatePicker
-              selected={dateSelected}
-              timeFormat="HH:mm"
-              onChange={handleChange}
-              inline
-              dateFormat="MMMM d, yyyy h:mm aa"
-              minDate={new Date()}
-              maxDate={sumDays(new Date(), 30)}
-              filterDate={isClosed}
-            />
-          </div>
-          {jwt ? (
-            <>
-              {!loading ? (
-                <>
-                  <p>Horarios disponibles</p>
-                  <div className={styles.btnsContainer}>
-                    <button
-                      disabled={!updated[14]}
-                      onClick={reserve}
-                      value={updated[14]}
-                    >
-                      14:00
-                    </button>
-                    <button
-                      disabled={!updated[143]}
-                      onClick={reserve}
-                      value={updated[143]}
-                    >
-                      14:30
-                    </button>
-                    <button
-                      disabled={!updated[15]}
-                      onClick={reserve}
-                      value={updated[15]}
-                    >
-                      15:00
-                    </button>
-                    <button
-                      disabled={!updated[153]}
-                      onClick={reserve}
-                      value={updated[153]}
-                    >
-                      15:30
-                    </button>
-                    <button
-                      disabled={!updated[16]}
-                      onClick={reserve}
-                      value={updated[16]}
-                    >
-                      16:00
-                    </button>
-                    <button
-                      disabled={!updated[163]}
-                      onClick={reserve}
-                      value={updated[163]}
-                    >
-                      16:30
-                    </button>
-                    <button
-                      disabled={!updated[17]}
-                      onClick={reserve}
-                      value={updated[17]}
-                    >
-                      17:00
-                    </button>
-                    <button
-                      disabled={!updated[173]}
-                      onClick={reserve}
-                      value={updated[173]}
-                    >
-                      17:30
-                    </button>
+        <div className={styles.background}>
+          <div className={styles.container}>
+            <h2>Selecciona la fecha y hora</h2>
+            <div className={styles.calendarContainer}>
+              <div className={styles.disabled}></div>
+              <DatePicker
+                selected={dateSelected}
+                timeFormat="HH:mm"
+                onChange={handleChange}
+                inline
+                dateFormat="MMMM d, yyyy h:mm aa"
+                minDate={new Date()}
+                maxDate={sumDays(new Date(), 30)}
+                filterDate={isClosed}
+              />
+            </div>
+            {jwt ? (
+              <>
+                {!loading ? (
+                  <>
+                    <p className={styles.timeTitle}>Horarios disponibles</p>
+                    <div className={styles.btnsContainer}>
+                      <button
+                        disabled={!updated[14]}
+                        onClick={reserve}
+                        value={updated[14]}
+                      >
+                        14:00
+                      </button>
+                      <button
+                        disabled={!updated[143]}
+                        onClick={reserve}
+                        value={updated[143]}
+                      >
+                        14:30
+                      </button>
+                      <button
+                        disabled={!updated[15]}
+                        onClick={reserve}
+                        value={updated[15]}
+                      >
+                        15:00
+                      </button>
+                      <button
+                        disabled={!updated[153]}
+                        onClick={reserve}
+                        value={updated[153]}
+                      >
+                        15:30
+                      </button>
+                      <button
+                        disabled={!updated[16]}
+                        onClick={reserve}
+                        value={updated[16]}
+                      >
+                        16:00
+                      </button>
+                      <button
+                        disabled={!updated[163]}
+                        onClick={reserve}
+                        value={updated[163]}
+                      >
+                        16:30
+                      </button>
+                      <button
+                        disabled={!updated[17]}
+                        onClick={reserve}
+                        value={updated[17]}
+                      >
+                        17:00
+                      </button>
+                      <button
+                        disabled={!updated[173]}
+                        onClick={reserve}
+                        value={updated[173]}
+                      >
+                        17:30
+                      </button>
+                    </div>
+                    <div className={styles.dateSelected}>
+                      {invalidDate ? (
+                        <>Selecciona una fecha válida</>
+                      ) : (
+                        <>
+                          Fecha seleccionada{" "}
+                          {new Date(dateSelected).toLocaleDateString()} a las{" "}
+                          {new Date(reserveDate).toLocaleTimeString()}
+                        </>
+                      )}
+                    </div>
+                    <div className={styles.nextBtnContainer}>
+                      <button
+                        disabled={invalidDate}
+                        className={styles.btnReserve}
+                        onClick={handleNext}
+                      >
+                        Siguiente
+                        <i class="fa-solid fa-arrow-right"></i>
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  <div className={styles.loaderContainer}>
+                    <ClipLoader size={60} />
                   </div>
-                  <div>
-                    Fecha seleccionada{" "}
-                    {new Date(dateSelected).toLocaleDateString()} a las{" "}
-                    {new Date(reserveDate).toLocaleTimeString()}
-                  </div>
-                  <div className={styles.nextBtnContainer}>
-                    <button className={styles.btnReserve} onClick={handleNext}>
-                      Siguiente
-                      <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-                  </div>
-                </>
-              ) : (
-                <div className={styles.loaderContainer}>
-                  <ClipLoader size={60} />
+                )}
+              </>
+            ) : (
+              <>
+                <div className={styles.notLogged}>
+                  Debes tener una sesion abierta para reservar un turno
                 </div>
-              )}
-            </>
-          ) : (
-            <>
-              <div>Debes tener una sesion abierta para reservar un turno</div>
-            </>
-          )}
+              </>
+            )}
+          </div>
+          <Footer />
         </div>
       ) : (
         <ConfirmAppoint

@@ -10,6 +10,7 @@
   padding: auto;
   padding: 0 2rem;
   gap: 2vh;
+  z-index: 500;
 }
 
 .p {

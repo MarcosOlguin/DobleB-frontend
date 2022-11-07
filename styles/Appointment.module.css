@@ -5,7 +5,8 @@
   height: 100%;
   padding-top: 5vh;
   background-color: #e2e2e2;
-
+  background: linear-gradient(#401469, black);
+  color: white;
   display: flex;
   flex-direction: column;
   gap: 7vh;
@@ -25,7 +26,7 @@
 
 .container h2 {
   margin: 0;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid white;
 }
 
 .tattooContainer {
@@ -42,13 +43,14 @@
   height: 40vh;
   width: 80vw;
   border-radius: 10px;
-  background-color: white;
+  background-color: #dfdfdf;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-shadow: 2px 3px 15px -7px black;
   color: black;
+  transition: all 0.2s linear;
 }
 
 .imgContainer {
@@ -61,14 +63,21 @@
 
 .button {
   border: none;
-  padding: 2vh 10vw;
+  padding: 1rem 1rem;
   border-radius: 10px;
   background-color: #0a0922;
   color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 50vw;
+  width: 9rem;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: #4c2c7d;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
 .p {
@@ -81,16 +90,17 @@
 
 .btnOnline {
   border: none;
-  padding: 2vh 12vw;
+  padding: 1rem 6rem;
   border-radius: 10px;
-  background-color: #4c2c7d;
+  background-color: #0a0922;
   color: white;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 50vw;
+  width: 2rem;
   font-size: 16px;
   gap: 20px;
+  transition: 0.3s;
 }
 
 .btnOnlineContainer {
@@ -101,6 +111,55 @@
   gap: 1vh;
 }
 
+.btnOnline:hover {
+  background-color: #0a0922;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
 .btnOnlineContainer span {
   font-size: 14px;
+}
+.cardsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+@media only screen and (min-width: 992px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 5rem;
+    height: 80vh;
+    padding-top: 5vh;
+    background-color: #e2e2e2;
+    display: flex;
+    flex-direction: column;
+    gap: 7vh;
+    align-items: center;
+  }
+  .cardsContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    position: relative;
+  }
+  .barbarContainer {
+    height: 30vh;
+    width: 30vw;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 3px 15px -7px black;
+    color: black;
+  }
+  .barbarContainer:hover {
+    width: 35vw;
+    height: 35vh;
+    transition: all 0.1s ease-in;
+  }
 }

@@ -51,7 +51,11 @@ function NavBarNotLogged() {
         {!jwt ? (
           <div
             onClick={handleClickLogin}
-            className={path === "/login" ? styles.login : styles.noLogin}
+            className={
+              path === "/login" || path === "/register"
+                ? styles.login
+                : styles.noLogin
+            }
           >
             Ingresar
           </div>

@@ -1,8 +1,11 @@
 .container {
   height: 90vh;
   margin-top: 0;
-  position: relative;
   padding: 0 4vw;
+  background-color: #e2e2e2;
+}
+.background {
+  height: 90vh;
   background-color: #e2e2e2;
 }
 
@@ -11,19 +14,9 @@
   padding-top: 10px;
 }
 .calendarContainer {
-  position: relative;
   margin: auto;
   width: 240px;
 }
-
-/* .disabled {
-  width: 75px;
-  height: 74%;
-  background-color: rgb(0, 0, 0, 0.8);
-  position: absolute;
-  bottom: 4px;
-  z-index: 99;
-} */
 
 .loaderContainer {
   padding-top: 2rem;
@@ -48,6 +41,10 @@
   background-color: #633291;
 }
 
+.btnsContainer button:hover {
+  background-color: #a453f0;
+}
+
 .btnsContainer button:disabled {
   background-color: grey;
 }
@@ -57,7 +54,7 @@
 }
 
 .btnReserve {
-  padding: 2vh 30vw;
+  padding: 1rem 6rem;
   font-size: 16px;
   border-radius: 4px;
   border: none;
@@ -66,9 +63,62 @@
   gap: 10px;
   color: white;
 }
+.btnReserve:disabled {
+  background-color: gray;
+  color: #c8c8c8;
+}
 
 .nextBtnContainer {
   margin-top: 3vh;
   display: flex;
   justify-content: center;
+}
+
+.notLogged {
+  font-size: 18px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.dateSelected {
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+@media only screen and (min-width: 992px) {
+  .container {
+    height: 60vh;
+    margin-top: 0;
+    padding: 0 4vw;
+    background-color: #e2e2e2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+  .btnsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 10vh;
+    gap: 10px;
+    padding-bottom: 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .btnsContainer button {
+    border-radius: 4px;
+    box-shadow: none;
+    border: none;
+    padding: 1rem 1.5rem;
+    background-color: #633291;
+  }
+  .timeTitle {
+    margin-bottom: 0;
+  }
+  .dateSelected {
+    font-weight: bold;
+    font-size: 18px;
+  }
 }

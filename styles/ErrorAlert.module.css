@@ -1,6 +1,6 @@
 .container {
   width: 95%;
-
+  z-index: 300;
   padding-top: 1rem;
   padding-bottom: 1rem;
   border-radius: 10px;

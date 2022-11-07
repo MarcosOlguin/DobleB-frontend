@@ -17,6 +17,7 @@ function Register() {
   const [phoneExists, setPhoneExists] = useState(false);
   const [visibilityPassword, setVisibilityPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const router = useRouter();
   useEffect(() => {
     if (jwt !== null) router.push(`/`);
@@ -72,11 +73,13 @@ function Register() {
             setJwt(res._tokenResponse.idToken);
           }
         } catch (error) {
-          console.log(error);
+          console.error(error);
         }
       }
     } catch (error) {
-      console.error(error.response);
+      console.error(error.response.data);
+      setError(error.response.data.toString());
+      setEmailExists(true);
       if (
         error.response.data ===
         "The user with the provided phone number already exists."
@@ -88,6 +91,8 @@ function Register() {
         "The email address is already in use by another account."
       )
         setEmailExists(true);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -104,130 +109,140 @@ function Register() {
   };
 
   return (
-    <div>
+    <>
       <NavBarNotLogged />
-      {loading && (
-        <div className={styles.loading}>
-          <PropagateLoader color="#ffff" />
-        </div>
-      )}
+      <div className={styles.background}>
+        <div className={styles.opacity}></div>
+        {loading && (
+          <div className={styles.loading}>
+            <PropagateLoader color="#ffff" />
+          </div>
+        )}
 
-      <ErrorAlert
-        text="El numero de teléfono ya se encuentra en uso"
-        activated={phoneExists}
-        setFunction={setPhoneExists}
-      />
-      <ErrorAlert
-        text="La dirección de email ya se encuentra en uso"
-        activated={emailExists}
-        setFunction={setEmailExists}
-      />
-      <div className={styles.container}>
-        <link
-          href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet"
+        <ErrorAlert
+          text="El numero de teléfono ya se encuentra en uso"
+          activated={phoneExists}
+          setFunction={setPhoneExists}
         />
-        <div className={styles.titleContainer}>
-          <h1 style={{ margin: 0 }}>Registrarse</h1>
-          <button onClick={handleLogin} className={styles.btnLogin}>
-            ¿Ya tenés cuenta?
-          </button>
-        </div>
+        <ErrorAlert
+          text="La dirección de email ya se encuentra en uso"
+          activated={emailExists}
+          setFunction={setEmailExists}
+        />
+        {error && (
+          <ErrorAlert
+            text={error}
+            activated={emailExists}
+            setFunction={setEmailExists}
+          />
+        )}
+        <div className={styles.container}>
+          <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+          />
+          <div className={styles.titleContainer}>
+            <h1 style={{ margin: 0 }}>Registrarse</h1>
+            <button onClick={handleLogin} className={styles.btnLogin}>
+              ¿Ya tenés cuenta?
+            </button>
+          </div>
 
-        <div>
-          <form className={styles.formContainer} onSubmit={handleSubmit}>
-            <div>
-              <div className={styles.nameContainer}>
-                <div className={styles.inputContainer}>
-                  <span>Nombre</span>
-                  <input
-                    minLength="2"
-                    required
-                    className={styles.input}
-                    onChange={handleChange}
-                    type="text"
-                    name="name"
-                    placeholder="Nombre"
-                    value={input.name}
-                  />
-                </div>
-
-                <div className={styles.inputContainer}>
-                  <span>Apellido</span>
-                  <input
-                    minLength="3"
-                    required
-                    onChange={handleChange}
-                    type="text"
-                    name="surname"
-                    placeholder="Apellido"
-                    value={input.surname}
-                  />
-                </div>
-              </div>
-              <div className={styles.phoneContainer}>
-                <div className={styles.inputContainer}>
-                  <span>Teléfono</span>
-                  <input
-                    required
-                    onChange={handleChange}
-                    type="number"
-                    name="phone"
-                    placeholder="Telefono"
-                    value={input.phone}
-                    onFocus={() => {
-                      setValidations(false);
-                    }}
-                  />
-                  {validations && (
-                    <span className={styles.inputValidation}>
-                      Introduce un numero válido
-                    </span>
-                  )}
-                </div>
-
-                <div className={styles.inputContainer}>
-                  <span>E-mail</span>
-                  <input
-                    required
-                    onChange={handleChange}
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={input.email}
-                  />
-                </div>
-                <div className={styles.inputContainer}>
-                  <span>Contraseña</span>
-                  <div className={styles.seePassword}>
+          <div>
+            <form className={styles.formContainer} onSubmit={handleSubmit}>
+              <div>
+                <div className={styles.nameContainer}>
+                  <div className={styles.inputContainer}>
+                    <span>Nombre</span>
                     <input
-                      pattern=".{6,}"
-                      title="6 caracteres mínimo"
+                      minLength="2"
+                      required
+                      className={styles.input}
+                      onChange={handleChange}
+                      type="text"
+                      name="name"
+                      placeholder="Nombre"
+                      value={input.name}
+                    />
+                  </div>
+
+                  <div className={styles.inputContainer}>
+                    <span>Apellido</span>
+                    <input
+                      minLength="3"
                       required
                       onChange={handleChange}
-                      type={visibilityPassword ? "text" : "password"}
-                      name="password"
-                      placeholder="Contraseña"
-                      value={input.password}
+                      type="text"
+                      name="surname"
+                      placeholder="Apellido"
+                      value={input.surname}
                     />
-                    <span
-                      onClick={handleSee}
-                      className={styles.materialIconsSee}
-                    >
-                      {!visibilityPassword ? "visibility" : "visibility_off"}
-                    </span>
+                  </div>
+                </div>
+                <div className={styles.phoneContainer}>
+                  <div className={styles.inputContainer}>
+                    <span>Teléfono</span>
+                    <input
+                      required
+                      onChange={handleChange}
+                      type="number"
+                      name="phone"
+                      placeholder="Telefono"
+                      value={input.phone}
+                      onFocus={() => {
+                        setValidations(false);
+                      }}
+                    />
+                    {validations && (
+                      <span className={styles.inputValidation}>
+                        Introduce un numero válido
+                      </span>
+                    )}
+                  </div>
+
+                  <div className={styles.inputContainer}>
+                    <span>E-mail</span>
+                    <input
+                      required
+                      onChange={handleChange}
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      value={input.email}
+                    />
+                  </div>
+                  <div className={styles.inputContainer}>
+                    <span>Contraseña</span>
+                    <div className={styles.seePassword}>
+                      <input
+                        pattern=".{6,}"
+                        title="6 caracteres mínimo"
+                        required
+                        onChange={handleChange}
+                        type={visibilityPassword ? "text" : "password"}
+                        name="password"
+                        placeholder="Contraseña"
+                        value={input.password}
+                      />
+                      <span
+                        onClick={handleSee}
+                        className={styles.materialIconsSee}
+                      >
+                        {!visibilityPassword ? "visibility" : "visibility_off"}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <button className={styles.btnNext} type="submit">
-              Registrarse
-              <span className={styles.materialIcons}>content_cut</span>
-            </button>
-          </form>
+              <button className={styles.btnNext} type="submit">
+                Registrarse
+                <span className={styles.materialIcons}>content_cut</span>
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

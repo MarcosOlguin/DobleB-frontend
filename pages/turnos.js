@@ -6,7 +6,7 @@ import backgroundImgNico from "../public/nico.jpg";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import tattooIcon from "../public/tattoo.png";
+import tattooIcon from "../public/tattoo2.png";
 import Footer from "../components/Footer";
 
 function Turnos() {
@@ -39,50 +39,52 @@ function Turnos() {
           <span>Solo para barberia</span>
         </div>
 
-        <div>
-          <p className={styles.p}>
-            Para Barberia <i className="fa-solid fa-scissors"></i>
-          </p>
-          <div className={styles.barbarContainer}>
-            <div className={styles.imgContainer}>
-              <Image
-                alt="img"
-                src={backgroundImgSanti}
-                width={130}
-                height={120}
-              />
+        <div className={styles.cardsContainer}>
+          <div>
+            <p className={styles.p}>
+              Para Barberia <i className="fa-solid fa-scissors"></i>
+            </p>
+            <div className={styles.barbarContainer}>
+              <div className={styles.imgContainer}>
+                <Image
+                  alt="img"
+                  src={backgroundImgSanti}
+                  width={130}
+                  height={120}
+                />
+              </div>
+              <p>Profesional: Santiago Benitez</p>
+              <Link href={"https://walink.co/ee1c6d"}>
+                <a className={styles.button}>
+                  Reservar
+                  <Image src={whatsappIcon} width={25} height={25} />
+                </a>
+              </Link>
             </div>
-            <p>Profesional: Santiago Benitez</p>
-            <Link href={"https://walink.co/ee1c6d"}>
-              <a className={styles.button}>
-                Reservar
-                <Image src={whatsappIcon} width={25} height={25} />
-              </a>
-            </Link>
           </div>
-        </div>
 
-        <div>
-          <p className={styles.p}>
-            Para Tattoos <Image src={tattooIcon} width={25} height={25} />
-          </p>
-          <div className={styles.barbarContainer}>
-            <div className={styles.imgContainer}>
-              <Image
-                alt="img"
-                src={backgroundImgNico}
-                width={130}
-                height={120}
-              />
+          <div>
+            <p className={styles.p}>
+              Para Tattoos <Image src={tattooIcon} width={25} height={25} />
+            </p>
+            <div className={styles.barbarContainer}>
+              <div className={styles.imgContainer}>
+                <Image
+                  alt="img"
+                  src={backgroundImgNico}
+                  width={130}
+                  height={120}
+                />
+              </div>
+              <p>Profesional: Nicolas Benitez</p>
+
+              <Link href={"https://walink.co/ee1c6d"}>
+                <a className={styles.button}>
+                  Reservar
+                  <Image src={whatsappIcon} width={25} height={25} />
+                </a>
+              </Link>
             </div>
-            <p>Profesional: Nicolas Benitez</p>
-
-            <Link href={"https://walink.co/ee1c6d"}>
-              <a className={styles.button}>
-                Reservar
-                <Image src={whatsappIcon} width={25} height={25} />
-              </a>
-            </Link>
           </div>
         </div>
       </div>
