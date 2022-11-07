@@ -19,6 +19,7 @@ import img1 from "../public/1.jpeg";
 import img2 from "../public/2.jpeg";
 import img3 from "../public/3.jpeg";
 import img4 from "../public/4.jpeg";
+import img6 from "../public/6.jpg";
 import dobleBImg from "../public/DobleB2.png";
 import Footer from "../components/Footer.js";
 
@@ -37,22 +38,29 @@ function Home() {
         <div className={styles.topBackground}>
           <div className={styles.imgContainer}>
             <p>Creamos tu mejor imagen</p>
-            <Image className={styles.backgroundImage} src={backgroundImage} />
+            <Image
+              className={styles.backgroundImage}
+              src={backgroundImage}
+              height={706}
+            />
           </div>
-
-          <button
-            onClick={() => {
-              router.push("/turnos");
-            }}
-            className={styles.backgroundBtn}
-          >
-            Reservar turno
-          </button>
+          <div className={styles.btnContainer}>
+            <h2>Reserva tu turno ahora</h2>
+            <button
+              onClick={() => {
+                router.push("/turnos");
+              }}
+              className={styles.backgroundBtn}
+            >
+              Reservar turno
+            </button>
+          </div>
         </div>
 
         <div id="services" className={styles.container}>
           {" "}
           <span className={styles.h2}>Nuestros servicios</span>
+          <span>Ofrecemos los siguiente servicios</span>
           <div className={styles.servicesContainer}>
             <div className={styles.servicesLeft}>
               <Image src={iconHaircut} height={60} width={60} />
@@ -82,10 +90,12 @@ function Home() {
           <div>
             <div className={styles.GaleryContainer}>
               <Image src={img5} />
-              <Image src={img1} />
+
               <Image src={img2} />
               <Image src={img3} />
+              <Image src={img1} />
               <Image src={img4} />
+              <Image src={img6} />
             </div>
             <div id="about" className={styles.aboutContainer}>
               <span className={styles.spanAbout}>Sobre</span>
