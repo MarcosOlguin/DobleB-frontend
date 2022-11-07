@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(#401469, black);
+  background: linear-gradient(#5b268d, black);
 }
 
 .container h2 {
@@ -51,6 +51,13 @@
   gap: 10px;
   margin: auto;
   color: white;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: #633291;
+  transition: 0.3s;
 }
 
 @media only screen and (min-width: 992px) {

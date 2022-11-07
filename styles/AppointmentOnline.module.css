@@ -38,11 +38,12 @@
   box-shadow: none;
   border: none;
   padding: 0 1.5rem;
-  background-color: #633291;
+  background-color: #4ebf35;
+  cursor: pointer;
 }
 
 .btnsContainer button:hover {
-  background-color: #a453f0;
+  background-color: #347725;
 }
 
 .btnsContainer button:disabled {
@@ -50,7 +51,7 @@
 }
 
 .btnsContainer button:focus {
-  background-color: #301946;
+  background-color: #347725;
 }
 
 .btnReserve {
@@ -62,10 +63,17 @@
   display: flex;
   gap: 10px;
   color: white;
+  transition: 0.3s;
 }
 .btnReserve:disabled {
   background-color: gray;
   color: #c8c8c8;
+}
+
+.btnReserve:hover {
+  cursor: pointer;
+  background-color: #633291;
+  transition: 0.3s;
 }
 
 .nextBtnContainer {
@@ -95,7 +103,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 3rem;
+    padding-bottom: 3rem;
   }
   .btnsContainer {
     display: flex;
@@ -112,7 +120,7 @@
     box-shadow: none;
     border: none;
     padding: 1rem 1.5rem;
-    background-color: #633291;
+    background-color: #4ebf35;
   }
   .timeTitle {
     margin-bottom: 0;

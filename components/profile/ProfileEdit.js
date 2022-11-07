@@ -3,7 +3,10 @@ import styles from "../../styles/ProfileEdit.module.css";
 function ProfileEdit({ handleChange, handlePassReset, handleUpdate, data }) {
   return (
     <div className={styles.editContainer}>
+      <div></div>
+
       <div className={styles.editSubContainer}>
+        <h2>Modo edición</h2>
         <div>
           <p>Nombre</p>
           <input value={data.name} onChange={handleChange} name="name" />

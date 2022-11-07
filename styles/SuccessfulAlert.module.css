@@ -48,3 +48,22 @@
   font-feature-settings: "liga";
   align-self: center;
 }
+
+@media only screen and (min-width: 992px) {
+  .container {
+    width: 50%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 10px;
+    color: #ffff;
+    background-color: #56cf29;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 80%;
+    left: 25%;
+    padding-left: 1rem;
+  }
+}

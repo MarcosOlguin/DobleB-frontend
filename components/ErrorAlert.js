@@ -22,6 +22,7 @@ function ErrorAlert({ text, activated, setFunction }) {
           animate={{ x: 0 }}
           exit={{ x: "-100%" }}
           className={styles.container}
+          transition={{ bounce: 0.2, type: "spring" }}
         >
           <p>{text}</p>
 

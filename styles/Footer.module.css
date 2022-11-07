@@ -34,6 +34,29 @@
   text-decoration: underline;
 }
 
-.marcos {
-  margin-bottom: 4vh;
+@media only screen and (min-width: 992px) {
+  .container {
+    background-color: #0a0922;
+    color: white;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: auto;
+    padding: auto;
+    padding: 0 2rem;
+    gap: 2vh;
+    z-index: 500;
+  }
+  .socialContainer {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 170px;
+    gap: 1vh;
+    font-size: 18px;
+  }
 }

@@ -18,6 +18,7 @@ function Turnos() {
   return (
     <div>
       <NavBarNotLogged />
+
       <div className={styles.container}>
         <div className={styles.titleContainer}>
           <h2>Escribinos y reseva tu turno!</h2>
@@ -25,7 +26,6 @@ function Turnos() {
             Contacta al profesional que necesites, tu consulta no molesta.
           </span>
         </div>
-
         <div className={styles.btnOnlineContainer}>
           <button
             className={styles.btnOnline}
@@ -36,9 +36,10 @@ function Turnos() {
             Reservar Online
             <i class="fa-solid fa-xl fa-calendar-days"></i>
           </button>
-          <span>Solo para barberia</span>
+          <span className={styles.alertContainer}>
+            <i class="fa-solid fa-circle-info"></i>Solo para barberia
+          </span>
         </div>
-
         <div className={styles.cardsContainer}>
           <div>
             <p className={styles.p}>
