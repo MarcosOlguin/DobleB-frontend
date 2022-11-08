@@ -22,6 +22,7 @@ import img4 from "../public/4.jpeg";
 import img6 from "../public/6.jpg";
 import dobleBImg from "../public/DobleB2.png";
 import Footer from "../components/Footer.js";
+import { AnimatePresence, motion } from "framer-motion";
 
 function Home() {
   const { jwt, setJwt } = useContext(Context);
@@ -37,7 +38,14 @@ function Home() {
       <div className={styles.containerr}>
         <div className={styles.topBackground}>
           <div className={styles.imgContainer}>
-            <p>Creamos tu mejor imagen</p>
+            <motion.p
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              transition={{ delay: 0, duration: 2 }}
+            >
+              Creamos tu mejor imagen
+            </motion.p>
+
             <Image
               className={styles.backgroundImage}
               src={backgroundImage}
@@ -59,26 +67,35 @@ function Home() {
 
         <div id="services" className={styles.container}>
           {" "}
-          <span className={styles.h2}>Nuestros servicios</span>
-          <span>Ofrecemos los siguiente servicios</span>
+          <div className={styles.titleContainer}>
+            <span className={styles.h2}>Nuestros servicios</span>
+            <span className={styles.description}>
+              Ofrecemos los siguiente servicios
+            </span>
+          </div>
           <div className={styles.servicesContainer}>
             <div className={styles.servicesLeft}>
+              <h3>Cortes</h3>
               <Image src={iconHaircut} height={60} width={60} />
               <p>Hacemos todo tipo de corte utilizando las mejores técnicas.</p>
             </div>
             <div className={styles.servicesRight}>
               <span>Realizamos afeitado y perfilado de barbas</span>
               <Image src={iconBeard} height={60} width={60} />
+              <h3>Afeitado</h3>
             </div>
             <div className={styles.servicesLeft}>
+              <h3>Coloración</h3>
               <Image src={iconColoration} height={60} width={60} />
               <p>Hacemos mechas y coloración global de distintos colores.</p>
             </div>
             <div className={styles.servicesRight}>
               <span>Estudio de tattoos con diseños personalizados.</span>
               <Image src={iconTattoo} width={60} height={60} />
+              <h3>Tattoos</h3>
             </div>
             <div className={styles.servicesLeft}>
+              <h3>Piercings</h3>
               <Image src={iconPiercing} width={60} height={60} />
               <p>
                 Perforaciones con la mayor precisión y todas las medidas

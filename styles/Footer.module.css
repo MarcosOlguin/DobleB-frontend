@@ -1,5 +1,5 @@
 .container {
-  background-color: #0a0922;
+  background-color: black;
   color: white;
   height: 45vh;
   display: flex;
@@ -36,9 +36,9 @@
 
 @media only screen and (min-width: 992px) {
   .container {
-    background-color: #0a0922;
+    background-color: black;
     color: white;
-    height: 30vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

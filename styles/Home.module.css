@@ -45,13 +45,19 @@
   color: white;
   font-size: 15px;
   box-shadow: 2px 3px 12px -5px black;
+  transition: 0.3s;
+}
+
+.backgroundBtn:hover {
+  background-color: black;
+  transition: 0.3s;
 }
 
 .h2 {
   border-bottom: 1px solid grey;
   width: 72vw;
   font-size: 30px;
-  margin: 0 2rem;
+  margin: 0 0rem;
 }
 
 .servicesLeft {
@@ -65,6 +71,11 @@
   padding-left: 10px;
   gap: 4vw;
   background: linear-gradient(90deg, #4c2c7d, black);
+}
+
+.servicesLeft h3 {
+  font-size: 15px;
+  display: none;
 }
 
 .servicesLeft img {
@@ -90,8 +101,13 @@
   background: linear-gradient(200deg, #4c2c7d, black);
 }
 
+.servicesRight h3 {
+  display: none;
+}
+
 .servicesRight span {
   width: 200px;
+  font-size: 16px;
 }
 
 .servicesContainer {
@@ -136,13 +152,10 @@
   text-align: center;
 }
 
-/* .GaleryContainer {
-  background-color: transparent;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  background-color: black;
-} */
+.btnContainer h2 {
+  display: none;
+}
+
 .GaleryContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -173,6 +186,19 @@
   grid-column: 3/5;
 }
 
+.description {
+  align-self: flex-start;
+  font-size: 18px;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+
 @media only screen and (min-width: 992px) {
   .backgroundBtn {
     position: static;
@@ -187,8 +213,14 @@
     box-shadow: 2px 3px 12px -5px black;
   }
   .imgContainer {
-    width: 1080px;
+    width: 1000px;
     height: 100%;
+    object-fit: cover;
+  }
+  .imgContainer img {
+    object-fit: cover;
+    height: 70vh !important;
+    width: 100%;
   }
   .imgContainer p {
     position: absolute;
@@ -204,7 +236,7 @@
     background: linear-gradient(#4c2c7d, black 90%);
     display: flex;
     align-items: center;
-
+    height: 70vh;
     justify-content: space-between;
   }
   .backgroundBtn {
@@ -228,20 +260,22 @@
     color: black;
   }
   .btnContainer {
-    width: 40vw;
+    width: 50vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
   .btnContainer h2 {
+    display: initial;
+  }
+  .btnContainer h2 {
     color: white;
     font-size: 40px;
   }
-  .backgroundImage {
+  .backgroundImage img {
     background-color: #e7edea;
     filter: brightness(0.3);
-    height: 300px;
   }
   .servicesContainer {
     display: flex;
@@ -254,43 +288,71 @@
     width: 80vw;
     flex-wrap: wrap;
   }
+
   .servicesRight {
     width: 20%;
-    height: 40vh;
+    height: 45vh;
     border-radius: 10px;
     display: flex;
     flex-direction: column-reverse;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    gap: 4vw;
+    gap: 0vw;
     color: white;
     padding-right: 0vw;
-
+    font-size: 20px;
     text-align: center;
     background: none;
     background-color: black;
+    transition: 0.3s;
   }
+  .servicesRight h3 {
+    display: initial;
+    font-size: 25px;
+  }
+
+  .servicesRight span {
+    font-size: 20px;
+  }
+  .servicesRight:hover {
+    background-color: #4c2c7d;
+    transition: 0.3s;
+  }
+
   .servicesLeft {
     color: white;
     width: 20%;
-    height: 40vh;
+    height: 45vh;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     padding-left: 00px;
     text-align: center;
-    gap: 4vw;
+    font-size: 20px;
+    gap: 0vw;
     background: none;
     background-color: black;
+    transition: 0.3s;
+  }
+
+  .servicesLeft h3 {
+    display: initial;
+    font-size: 25px;
+  }
+
+  .servicesLeft:hover {
+    background-color: #4c2c7d;
+    transition: 0.3s;
   }
   .GaleryContainer {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 500px;
     gap: 8px;
     padding: 200px;
+    padding-top: 10px;
   }
 
   .GaleryContainer span img {
@@ -307,6 +369,16 @@
     grid-row: 1/3;
   }
   .GaleryContainer span:nth-child(3) {
-    grid-column: 1/3;
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  .GaleryContainer span:nth-child(6) {
+    grid-column: 4/5;
+  }
+  .h2 {
+    border-bottom: 1px solid grey;
+    width: 72vw;
+    font-size: 40px;
+    margin: 0 0rem;
   }
 }
