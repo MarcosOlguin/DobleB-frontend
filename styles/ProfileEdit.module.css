@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  justify-content: flex-start;
-  gap: 5vh;
+  justify-content: space-around;
+  gap: 2vh;
   width: 100vw;
   color: black;
   background-color: white;

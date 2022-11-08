@@ -69,7 +69,7 @@
   background-color: #414141;
   background: linear-gradient(#5b268d, black);
   color: #ffff;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -135,6 +135,7 @@
   padding: 8px;
   border-radius: 6px;
   transition: 0.3s;
+  color: white;
 }
 
 .btnCancel:hover {
