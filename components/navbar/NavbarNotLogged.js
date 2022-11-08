@@ -60,7 +60,12 @@ function NavBarNotLogged() {
             Ingresar
           </div>
         ) : (
-          <div onClick={handleClickProfile}>Perfil</div>
+          <div
+            className={path === "/profile" ? styles.onProfile : styles.profile}
+            onClick={handleClickProfile}
+          >
+            Perfil
+          </div>
         )}
       </div>
     </>

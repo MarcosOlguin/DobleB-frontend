@@ -37,7 +37,7 @@ function Turnos() {
             <i class="fa-solid fa-xl fa-calendar-days"></i>
           </button>
           <span className={styles.alertContainer}>
-            <i class="fa-solid fa-circle-info"></i>Solo para barberia
+            <i className="fa-solid fa-circle-info"></i>Solo para barberia
           </span>
         </div>
         <div className={styles.cardsContainer}>

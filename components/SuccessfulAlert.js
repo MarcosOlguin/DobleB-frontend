@@ -18,9 +18,9 @@ function SuccessfulAlert({ activated, setFunction, text }) {
     <AnimatePresence>
       {enabled && (
         <motion.div
-          initial={{ x: "-100%" }}
+          initial={{ x: "-150%" }}
           animate={{ x: 0 }}
-          exit={{ x: "-100%" }}
+          exit={{ x: "-150%" }}
           className={styles.container}
         >
           {text}

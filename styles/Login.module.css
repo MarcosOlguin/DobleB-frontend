@@ -29,7 +29,7 @@
 }
 
 .container {
-  height: 90vh;
+  min-height: 90vh;
   max-width: 500px;
   margin: auto;
   display: flex;
@@ -56,6 +56,7 @@
   align-items: center;
   gap: 10px;
   font-size: 16px;
+  transition: all 0.3s ease;
 }
 
 .btnLogin:hover {
@@ -157,6 +158,7 @@
   background-color: #0a0922;
   border: none;
   color: white;
+  transition: all 0.3s ease;
 }
 
 .Resetform button:hover {
@@ -212,7 +214,7 @@
 }
 
 .background {
-  height: 90vh;
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -261,7 +263,6 @@
     position: absolute;
     width: 100%;
     height: 90vh;
-    backdrop-filter: blur(2px);
     display: flex;
     justify-content: center;
     align-items: center;

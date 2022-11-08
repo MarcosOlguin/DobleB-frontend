@@ -184,6 +184,7 @@ function Register() {
                     <span>Teléfono</span>
                     <input
                       required
+                      className={styles.inputNumber}
                       onChange={handleChange}
                       type="number"
                       name="phone"

@@ -27,6 +27,10 @@
   font-size: 18px;
 }
 
+.socialContainer a:hover {
+  text-decoration: underline;
+}
+
 .socialContainer p {
   margin: 0;
   margin-bottom: 0px;

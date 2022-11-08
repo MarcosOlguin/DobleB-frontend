@@ -134,8 +134,8 @@
   .container {
     padding-left: 1rem;
     padding-right: 1rem;
-    padding-bottom: 5rem;
-    height: 80vh;
+    padding-bottom: 4rem;
+    height: 90vh;
     padding-top: 5vh;
     background-color: #e2e2e2;
     display: flex;

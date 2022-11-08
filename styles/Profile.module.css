@@ -25,14 +25,25 @@
   align-items: center;
   justify-content: space-between;
 }
-.editDates div {
+
+.editDates button {
   color: #ffff;
   background-color: #0a0922;
   border-radius: 6px;
-  padding: 0.5rem;
+  padding: 1rem;
+  border: none;
+  font-size: 16px;
+  transition: 0.3s;
 }
-.editDates p {
-  font-size: 20px;
+
+.editDates button:hover {
+  background-color: #4c2c7d;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.editDates p:hover {
+  background-color: #4c2c7d;
 }
 .dates {
   border-bottom: 1px solid #c4c4c4;
@@ -45,13 +56,20 @@
   background-color: #0a0922;
   border-radius: 8px;
   padding: 0.7rem;
+  transition: 0.3s;
+}
+
+.logout:hover {
+  background-color: #4c2c7d;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .background {
   background-color: #414141;
   background: linear-gradient(#5b268d, black);
   color: #ffff;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -100,6 +118,7 @@
 .notLogged {
   height: 90vh;
   background-color: #414141;
+  background: linear-gradient(#4c2c7d, black 90%);
   color: white;
   display: flex;
   justify-content: center;
@@ -115,6 +134,13 @@
   border: none;
   padding: 8px;
   border-radius: 6px;
+  transition: 0.3s;
+}
+
+.btnCancel:hover {
+  background-color: #4c2c7d;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .p {
@@ -144,5 +170,17 @@
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 2rem;
+  }
+  .background {
+    background-color: #414141;
+    background: linear-gradient(#5b268d, black);
+    color: #ffff;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    gap: 2vh;
   }
 }

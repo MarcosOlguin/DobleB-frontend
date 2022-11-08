@@ -23,9 +23,16 @@
   font-size: 18px;
   background-color: #0a0922;
   border-radius: 5px;
-  padding: 0.5rem;
+  padding: 0.8rem;
   border: none;
   color: white;
+  transition: 0.3s;
+}
+
+.editBtnsContainer button:hover {
+  background-color: #4c2c7d;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .editContainer input {
@@ -41,7 +48,7 @@
   .editContainer {
     display: flex;
     flex-direction: row;
-    height: 60%;
+    height: 65%;
     justify-content: space-evenly;
     align-items: flex-start;
     gap: 5vh;
@@ -57,7 +64,7 @@
     font-size: 18px;
     background-color: #0a0922;
     border-radius: 5px;
-    padding: 0.5rem;
+    padding: 1rem;
     border: none;
     color: white;
     margin-top: 0rem;

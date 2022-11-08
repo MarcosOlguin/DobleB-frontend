@@ -199,7 +199,7 @@
   margin-right: 10vw;
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 900px) {
   .backgroundBtn {
     position: static;
 
@@ -281,7 +281,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    height: 85vh;
+    height: 95vh;
     justify-content: space-around;
     gap: 50px;
     padding: 0 2rem;
@@ -290,7 +290,191 @@
   }
 
   .servicesRight {
-    width: 20%;
+    width: 16.5vw;
+    height: 45vh;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0vw;
+    color: white;
+    padding-right: 0vw;
+    font-size: 18px;
+    text-align: center;
+    background: none;
+    background-color: black;
+    transition: 0.3s;
+  }
+  .servicesRight h3 {
+    display: initial;
+    font-size: 25px;
+  }
+
+  .servicesRight span {
+    font-size: 18px;
+  }
+  .servicesRight:hover {
+    background-color: #4c2c7d;
+    transition: 0.3s;
+  }
+
+  .servicesLeft {
+    color: white;
+    width: 16.5vw;
+    height: 45vh;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding-left: 00px;
+    text-align: center;
+    font-size: 18px;
+    gap: 0vw;
+    background: none;
+    background-color: black;
+    transition: 0.3s;
+  }
+
+  .servicesLeft h3 {
+    display: initial;
+    font-size: 25px;
+  }
+
+  .servicesLeft:hover {
+    background-color: #4c2c7d;
+    transition: 0.3s;
+  }
+  .GaleryContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 500px;
+    gap: 8px;
+    padding: 200px;
+    padding-top: 10px;
+  }
+
+  .GaleryContainer span img {
+    object-fit: cover !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .GaleryContainer span:nth-child(1) {
+    grid-column: 1/3;
+  }
+  .GaleryContainer span:nth-child(2) {
+    grid-column: 3/3;
+    grid-row: 1/3;
+  }
+  .GaleryContainer span:nth-child(3) {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  .GaleryContainer span:nth-child(6) {
+    grid-column: 4/5;
+  }
+  .h2 {
+    border-bottom: 1px solid grey;
+    width: 72vw;
+    font-size: 40px;
+    margin: 0 0rem;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .backgroundBtn {
+    position: static;
+
+    z-index: 80;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    border: none;
+    background-color: #4c2c7d;
+    color: white;
+    font-size: 15px;
+    box-shadow: 2px 3px 12px -5px black;
+  }
+  .imgContainer {
+    width: 1000px;
+    height: 100%;
+    object-fit: cover;
+  }
+  .imgContainer img {
+    object-fit: cover;
+    height: 70vh !important;
+    width: 100%;
+  }
+  .imgContainer p {
+    position: absolute;
+    top: 18vh;
+    left: 20px;
+    z-index: 100;
+    color: white;
+    font-size: 60px;
+    font-weight: 200;
+    width: 60vw;
+  }
+  .topBackground {
+    background: linear-gradient(#4c2c7d, black 90%);
+    display: flex;
+    align-items: center;
+    height: 70vh;
+    justify-content: space-between;
+  }
+  .backgroundBtn {
+    z-index: 80;
+    padding: 1.5rem 6rem;
+    border-radius: 4px;
+    border: none;
+    background-color: #4c2c7d;
+    color: white;
+    font-size: 15px;
+    box-shadow: 2px 3px 12px -5px black;
+  }
+  .container {
+    height: 100%;
+    background-color: #e2e2e2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8vh;
+    margin-top: 8vh;
+    color: black;
+  }
+  .btnContainer {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .btnContainer h2 {
+    display: initial;
+  }
+  .btnContainer h2 {
+    color: white;
+    font-size: 40px;
+  }
+  .backgroundImage img {
+    background-color: #e7edea;
+    filter: brightness(0.3);
+  }
+  .servicesContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100vh;
+    justify-content: space-around;
+    gap: 50px;
+    padding: 0 2rem;
+    width: 80vw;
+    flex-wrap: wrap;
+  }
+
+  .servicesRight {
+    width: 15vw;
     height: 45vh;
     border-radius: 10px;
     display: flex;
@@ -321,7 +505,7 @@
 
   .servicesLeft {
     color: white;
-    width: 20%;
+    width: 15vw;
     height: 45vh;
     border-radius: 10px;
     display: flex;

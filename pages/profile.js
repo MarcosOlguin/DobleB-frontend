@@ -197,16 +197,18 @@ function Profile() {
                 </div>
                 <div className={styles.editDates}>
                   <h2>Tus datos</h2>
-                  <div
+                  <button
                     onClick={() => {
                       setEdit(true);
                     }}
                   >
-                    <div style={{ display: "flex", alignContenct: "center" }}>
+                    <div
+                      style={{ display: "flex", alignContent: "flex-start" }}
+                    >
                       Modificar datos
                       <span className={styles.materialIcons}>edit</span>
                     </div>
-                  </div>
+                  </button>
                 </div>
 
                 <div className={styles.dates}>
