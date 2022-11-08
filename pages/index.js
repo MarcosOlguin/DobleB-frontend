@@ -103,7 +103,7 @@ function Home() {
               </p>
             </div>
           </div>
-          <span className={styles.h2}>Galería</span>
+          <span className={styles.spanGalery}>Galería</span>
           <div>
             <div className={styles.GaleryContainer}>
               <Image src={img5} />

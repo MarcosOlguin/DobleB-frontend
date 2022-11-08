@@ -60,6 +60,13 @@
   margin: 0 0rem;
 }
 
+.spanGalery {
+  border-bottom: 1px solid grey;
+  width: 72vw;
+  font-size: 30px;
+  margin: 0 10vw;
+}
+
 .servicesLeft {
   background-color: #414141;
   color: white;
