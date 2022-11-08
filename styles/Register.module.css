@@ -1,6 +1,6 @@
 .container {
   padding: 0 2.3rem;
-  height: 115vh;
+  min-height: 100vh;
   max-width: 1000px;
   margin: auto;
   display: flex;
@@ -23,7 +23,7 @@
 }
 
 .nameContainer {
-  padding-bottom: 2vw;
+  padding-bottom: 5vw;
   display: flex;
   gap: 50px;
   justify-content: space-between;
@@ -145,6 +145,7 @@
 .inputContainer {
   display: flex;
   flex-direction: column;
+  padding-bottom: 5vh;
 }
 
 .inputValidation {
@@ -193,8 +194,8 @@
 .formContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 17vh;
+  justify-content: flex-start;
+  gap: 0vh;
   height: 100%;
 }
 
@@ -222,7 +223,7 @@
 .opacity {
   position: absolute;
   width: 100%;
-  height: 90vh;
+  min-height: 100vh;
   background-color: black;
   z-index: 100;
   opacity: 0.85;
