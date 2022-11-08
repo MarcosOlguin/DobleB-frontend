@@ -3,9 +3,10 @@
   margin-top: 0;
   padding: 0 4vw;
   background-color: #e2e2e2;
+  padding-bottom: 2rem;
 }
 .background {
-  height: 90vh;
+  height: 100%;
   background-color: #e2e2e2;
 }
 
