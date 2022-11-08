@@ -1,6 +1,6 @@
 .container {
   height: 100%;
-  width: 100vw;
+  width: 95vw;
   color: black;
   background-color: #e2e2e2;
   display: flex;
@@ -69,7 +69,7 @@
   background-color: #414141;
   background: linear-gradient(#5b268d, black);
   color: #ffff;
-  height: 100vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -154,7 +154,7 @@
 
 @media only screen and (min-width: 992px) {
   .container {
-    height: 100vh;
+    height: 100%;
     width: 50vw;
     color: black;
     background-color: #e2e2e2;
@@ -176,7 +176,7 @@
     background-color: #414141;
     background: linear-gradient(#5b268d, black);
     color: #ffff;
-    height: 90vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
