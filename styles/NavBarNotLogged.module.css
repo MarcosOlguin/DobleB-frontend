@@ -13,6 +13,10 @@
   z-index: 999;
 }
 
+.img:hover {
+  cursor: pointer;
+}
+
 .titleContainer {
   display: flex;
   flex-direction: column;
@@ -57,16 +61,23 @@
   border: none;
   font-size: 16px;
   padding: 0;
+  cursor: pointer;
 }
 
 .login {
   color: #4c78eb;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .onProfile {
   color: #4c78eb;
   text-decoration: underline;
+  cursor: pointer;
+}
+
+.profile {
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 992px) {

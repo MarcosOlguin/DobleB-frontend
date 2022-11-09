@@ -44,7 +44,7 @@ function NavBarNotLogged() {
           <div>Menú</div>
         </div>
 
-        <div onClick={handleClickHome}>
+        <div className={styles.img} onClick={handleClickHome}>
           <Image src={dobleBImg} alt="icon" width={100} height={100} />
         </div>
 
