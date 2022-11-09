@@ -75,8 +75,9 @@
   border-radius: 10px;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   padding-left: 10px;
-  gap: 4vw;
+  gap: 6vw;
   background: linear-gradient(90deg, #4c2c7d, black);
 }
 
@@ -102,7 +103,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 1vw;
+  gap: 0vw;
   color: white;
   padding-right: 4vw;
   background: linear-gradient(200deg, #4c2c7d, black);
