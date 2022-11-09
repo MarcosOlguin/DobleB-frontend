@@ -32,7 +32,8 @@ function Footer() {
         </Link>
       </div>
       <p className={styles.p}>
-        Saavedra 2630, Granadero Baigorria, Santa Fe, Argentina
+        <i className="fa-solid fa-location-dot"></i>Saavedra 2630, Granadero
+        Baigorria, Santa Fe, Argentina
       </p>
       <p className={styles.marcos}>
         Developed by Marcos<i className="fa-solid fa-screwdriver-wrench"></i>

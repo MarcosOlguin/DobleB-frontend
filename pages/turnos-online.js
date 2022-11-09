@@ -257,7 +257,7 @@ function OnlineAppointment() {
                   </>
                 ) : (
                   <div className={styles.loaderContainer}>
-                    <ClipLoader size={60} />
+                    <ClipLoader size={60} color={"white"} />
                   </div>
                 )}
               </>

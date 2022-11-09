@@ -1,5 +1,5 @@
 .container {
-  background-color: black;
+  background-color: #3b1a6d;
   color: white;
   height: 100%;
   display: flex;
@@ -22,7 +22,7 @@
   padding-top: 2rem;
   display: flex;
   flex-direction: column;
-  width: 50%;
+
   gap: 1vh;
   font-size: 18px;
 }
@@ -40,7 +40,7 @@
 
 @media only screen and (min-width: 992px) {
   .container {
-    background-color: black;
+    background-color: #4c2c7d;
     color: white;
     height: 100%;
     display: flex;

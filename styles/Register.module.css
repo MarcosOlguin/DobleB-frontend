@@ -238,7 +238,8 @@
 @media only screen and (min-width: 768px) {
   .container {
     padding: 0 2.3rem;
-    height: 65vh;
+    height: 60vh;
+    min-height: 0;
     max-width: 1000px;
     margin: auto;
     display: flex;
@@ -264,6 +265,31 @@
     background-color: black;
     z-index: 100;
     opacity: 0.85;
+  }
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 2vh;
+    height: 100%;
+  }
+  .phoneContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 80%;
+    gap: 0vh;
+  }
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 3vh;
+  }
+  .nameContainer {
+    padding-bottom: 0vw;
+    display: flex;
+    gap: 50px;
+    justify-content: space-between;
   }
 }
 

@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(#5b268d, black 50%);
+  background: linear-gradient(#5b268d, black 100%);
   color: white;
 }
 .background {
@@ -50,7 +50,7 @@
 }
 
 .btnsContainer button:hover {
-  background-color: #347725;
+  background-color: #26551c;
 }
 
 .btnsContainer button:disabled {
@@ -58,7 +58,7 @@
 }
 
 .btnsContainer button:focus {
-  background-color: #347725;
+  background-color: #26551c;
 }
 
 .btnReserve {
@@ -102,7 +102,7 @@
 
 @media only screen and (min-width: 992px) {
   .container {
-    height: 60vh;
+    height: 70vh;
     margin-top: 0;
     padding: 0 4vw;
     background-color: #e2e2e2;
@@ -110,7 +110,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 3rem;
+    padding-bottom: 10rem;
   }
   .btnsContainer {
     display: flex;
