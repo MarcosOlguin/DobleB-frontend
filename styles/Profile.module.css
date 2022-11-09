@@ -176,7 +176,7 @@
     background-color: #414141;
     background: linear-gradient(#5b268d, black);
     color: #ffff;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
