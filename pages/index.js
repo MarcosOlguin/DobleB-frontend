@@ -128,7 +128,7 @@ function Home() {
                 También contamos con un estudio de tattoos y de perforaciones en
                 el que hacemos todo tipos de diseños a medida.
               </p>
-              <p>Encontranos en Saavedra 2630, Granadero Baigorria, Santa Fe</p>
+              <p>Encontranos en Saavedra 2660, Granadero Baigorria, Santa Fe</p>
             </div>
           </div>
         </div>
