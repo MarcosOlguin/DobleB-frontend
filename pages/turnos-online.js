@@ -42,7 +42,7 @@ function OnlineAppointment() {
       setLoading(true);
       try {
         const res = await axios.get(
-          "https://dobleb.herokuapp.com/turno/reservados",
+          "https://web-production-d1e9.up.railway.app/turno/reservados",
           {
             headers: {
               Authorization: `Bearer ${jwt}`,
@@ -112,7 +112,7 @@ function OnlineAppointment() {
   const handleReserve = async (reserveDate) => {
     try {
       const res = await axios.post(
-        "https://dobleb.herokuapp.com/turno/reservar",
+        "https://web-production-d1e9.up.railway.app/turno/reservar",
         { date: reserveDate },
         {
           headers: {

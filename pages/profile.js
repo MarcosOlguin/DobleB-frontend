@@ -28,7 +28,7 @@ function Profile() {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          "https://dobleb.herokuapp.com/user/profile",
+          "https://web-production-d1e9.up.railway.app/user/profile",
           {
             headers: {
               Authorization: `Bearer ${jwt}`,
@@ -38,7 +38,7 @@ function Profile() {
         setData(res.data);
       } catch (error) {
         console.log(error);
-        console.log(error.response.status);
+        console.log(error.response);
         if (error.response.status === 403) {
           window.localStorage.clear("UserLogged");
           setJwt(null);
@@ -63,7 +63,7 @@ function Profile() {
   const handleUpdate = async () => {
     try {
       const res = await axios.patch(
-        "https://dobleb.herokuapp.com/user/update-data",
+        "https://web-production-d1e9.up.railway.app/user/update-data",
         {
           data: {
             name: data.name,
@@ -115,7 +115,7 @@ function Profile() {
   const expires = async () => {
     try {
       const res = await axios.patch(
-        "https://dobleb.herokuapp.com/turno/cancelar-turno",
+        "https://web-production-d1e9.up.railway.app/turno/cancelar-turno",
         {},
         {
           headers: {
@@ -131,7 +131,7 @@ function Profile() {
   const handleCancel = () => {
     try {
       const res = axios.patch(
-        "https://dobleb.herokuapp.com/turno/cancelar-turno",
+        "https://web-production-d1e9.up.railway.app/turno/cancelar-turno",
         {},
         {
           headers: {

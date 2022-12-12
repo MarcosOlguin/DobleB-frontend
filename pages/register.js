@@ -50,7 +50,7 @@ function Register() {
     try {
       setLoading(true);
       const res = await axios.post(
-        "https://dobleb.herokuapp.com/user/register",
+        "https://web-production-d1e9.up.railway.app/user/register",
         {
           email: input.email,
           password: input.password,
