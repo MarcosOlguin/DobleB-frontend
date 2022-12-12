@@ -154,7 +154,7 @@ function Profile() {
           <div className={styles.h1Container}>
             <h1 className={styles.h1}>Perfil</h1>{" "}
             <div className={styles.logout} onClick={handleLogout}>
-              Salir <span className={styles.materialIcons}>logout</span>
+              Salir <span className={styles.materialIcons}>logoutt</span>
             </div>
           </div>
 
